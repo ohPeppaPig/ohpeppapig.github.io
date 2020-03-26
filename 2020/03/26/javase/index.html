@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="javase简介1.jdk与jre  JDK：Java Development Kit JRE：Java Runtime Environment  简单地说，JRE就是运行Java字节码的虚拟机。但是，如果只有Java源码，要编译成Java字节码，就需要JDK，因为JDK除了包含JRE，还提供了编译器、调试器等开发工具。 1234567891011 ┌─    ┌─────────────────">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javase">
+<meta property="og:url" content="http://yoursite.com/2020/03/26/javase/index.html">
+<meta property="og:site_name" content="MRZ的博客">
+<meta property="og:description" content="javase简介1.jdk与jre  JDK：Java Development Kit JRE：Java Runtime Environment  简单地说，JRE就是运行Java字节码的虚拟机。但是，如果只有Java源码，要编译成Java字节码，就需要JDK，因为JDK除了包含JRE，还提供了编译器、调试器等开发工具。 1234567891011 ┌─    ┌─────────────────">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-26T06:54:07.935Z">
+<meta property="article:modified_time" content="2020-01-01T09:40:26.748Z">
+<meta property="article:author" content="MRZ">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/26/javase/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>javase | MRZ的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MRZ的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">something need to do!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">7</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/javase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MRZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MRZ的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          javase
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-26 14:54:07" itemprop="dateCreated datePublished" datetime="2020-03-26T14:54:07+08:00">2020-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-01 17:40:26" itemprop="dateModified" datetime="2020-01-01T17:40:26+08:00">2020-01-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="javase"><a href="#javase" class="headerlink" title="javase"></a>javase</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>1.jdk与jre</p>
+<ul>
+<li>JDK：Java Development Kit</li>
+<li>JRE：Java Runtime Environment</li>
+</ul>
+<p>简单地说，JRE就是运行Java字节码的虚拟机。但是，如果只有Java源码，要编译成Java字节码，就需要JDK，因为JDK除了包含JRE，还提供了编译器、调试器等开发工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> ┌─    ┌──────────────────────────────────┐</span><br><span class="line"> │     │     Compiler, debugger, etc.     │</span><br><span class="line"> │     └──────────────────────────────────┘</span><br><span class="line">JDK ┌─ ┌──────────────────────────────────┐</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> │ JRE │      JVM + Runtime Library       │</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> └─ └─ └──────────────────────────────────┘</span><br><span class="line">       ┌───────┐┌───────┐┌───────┐┌───────┐</span><br><span class="line">       │Windows││ Linux ││ macOS ││others │</span><br><span class="line">       └───────┘└───────┘└───────┘└───────┘</span><br></pre></td></tr></table></figure>
+
+<p>2.如何运行java文件？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────────┐</span><br><span class="line">│    Hello.java    │&lt;─── source code</span><br><span class="line">└──────────────────┘</span><br><span class="line">          │ compile</span><br><span class="line">          ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│   Hello.class    │&lt;─── byte code</span><br><span class="line">└──────────────────┘</span><br><span class="line">          │ execute</span><br><span class="line">          ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│    Run on JVM    │</span><br><span class="line">└──────────────────┘</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<code>javac</code>可以将<code>.java</code>源码编译成<code>.class</code>字节码；</li>
+<li>使用<code>java</code>可以运行一个已编译的Java程序，参数是类名。</li>
+</ul>
+<hr>
+<h4 id="java程序基础"><a href="#java程序基础" class="headerlink" title="java程序基础"></a>java程序基础</h4><ul>
+<li><p>基本数据类型</p>
+<ul>
+<li>整数类型：byte，short，int，long</li>
+<li>浮点数类型：float，double</li>
+<li>字符类型：char</li>
+<li>布尔类型：boolean</li>
+</ul>
+</li>
+<li><p>占用字节数</p>
+<ul>
+<li><pre><code class="ascii">       ┌───┐
+  byte │   │   1
+       └───┘
+       ┌───┬───┐
+ short │   │   │ 2 
+       └───┴───┘
+       ┌───┬───┬───┬───┐
+   int │   │   │   │   │ 4
+       └───┴───┴───┴───┘
+       ┌───┬───┬───┬───┬───┬───┬───┬───┐
+  long │   │   │   │   │   │   │   │   │ 8
+       └───┴───┴───┴───┴───┴───┴───┴───┘
+       ┌───┬───┬───┬───┐
+ float │   │   │   │   │ 4
+       └───┴───┴───┴───┘
+       ┌───┬───┬───┬───┬───┬───┬───┬───┐
+double │   │   │   │   │   │   │   │   │ 8
+       └───┴───┴───┴───┴───┴───┴───┴───┘
+       ┌───┬───┐
+  char │   │   │ 2
+       └───┴───┘
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &#96;byte&#96;恰好就是一个字节，而&#96;long&#96;和&#96;double&#96;需要8个字节。</span><br><span class="line"></span><br><span class="line">- 整型</span><br><span class="line"></span><br><span class="line">  - 对于整型类型，Java只定义了带符号的整型，因此，**最高位的bit表示符号位**（0表示正数，1表示负数）。各种整型能表示的最大范围如下：</span><br><span class="line"></span><br><span class="line">    - byte：-128 ~ 127      **2^7**</span><br><span class="line">    - short: -32768 ~ 32767    **2^15**</span><br><span class="line">    - int: -2147483648 ~ 2147483647   **2^31**</span><br><span class="line">    - long: -9223372036854775808 ~ 9223372036854775807</span><br><span class="line"></span><br><span class="line">  - 通常**JVM内部会把&#96;boolean&#96;表示为4字节整数。**</span><br><span class="line"></span><br><span class="line">  - 整性运算</span><br><span class="line"></span><br><span class="line">    - 整数的数值表示不但是精确的，而且整数运算永远是精确的，即使是除法也是精确的，因为两个整数相除只能得到结果的整数部分</span><br><span class="line">    - 特别注意：**整数的除法对于除数为0时运行时将报错，但编译不会报错。**</span><br><span class="line"></span><br><span class="line">  - 溢出</span><br><span class="line"></span><br><span class="line">    - 要特别注意，整数由于存在范围限制，如果计算结果超出了范围，就会产生溢出，而溢出*不会出错*，却会得到一个奇怪的结果</span><br><span class="line"></span><br><span class="line">    - eg</span><br><span class="line"></span><br><span class="line">      - 要解释上述结果，我们把整数&#96;2147483640&#96;和&#96;15&#96;换成二进制做加法：</span><br><span class="line"></span><br><span class="line">        &#96;&#96;&#96;ascii</span><br><span class="line">          0111 1111 1111 1111 1111 1111 1111 1000</span><br><span class="line">        + 0000 0000 0000 0000 0000 0000 0000 1111</span><br><span class="line">        -----------------------------------------</span><br><span class="line">          1000 0000 0000 0000 0000 0000 0000 0111</span><br></pre></td></tr></table></figure>
+
+    由于最高位计算结果为`1`，因此，加法结果变成了一个负数</code></pre>
+</li>
+<li><p>类型自动提升和强制转型</p>
+<ul>
+<li>在运算过程中，如果参与运算的两个数类型不一致，那么计算结果为较大类型的整型（<strong>自动提升</strong>）</li>
+<li>将结果强制转型，即将大范围的整数转型为小范围的整数。强制转型使用<code>(类型)</code><ul>
+<li>超出范围的强制转型会得到错误的结果，原因是int转型short，<code>int</code>的两个高位字节直接被扔掉，仅保留了低位的两个字节</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>浮点型</p>
+<ul>
+<li><p>只能进行加减乘除这些数值计算，不能做位运算和移位运算</p>
+</li>
+<li><p><strong>浮点数无法精确表示</strong>，比如十进制的<code>0.1</code>换算成二进制是一个无限循环小数</p>
+</li>
+<li><p><strong>正确的比较方法</strong>：判断两个浮点数之差的绝对值是否小于一个很小的数</p>
+</li>
+<li><p><strong>自动类型提升</strong>：整性与浮点型运算时，自动转化为浮点型</p>
+</li>
+<li><p><strong>强制转型</strong>：可以将浮点数强制转型为整数。在转型时，浮点数的小数部分会被丢掉</p>
+</li>
+<li><h3 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h3><p>整数运算在除数为<code>0</code>时会报错，而浮点数运算在除数为<code>0</code>时，不会报错，但会返回几个特殊值：</p>
+<ul>
+<li><code>NaN</code>表示Not a Number</li>
+<li><code>Infinity</code>表示无穷大</li>
+<li><code>-Infinity</code>表示负无穷大</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>字符串</p>
+<ul>
+<li><p>字符串的不可变性</p>
+<ul>
+<li><p>执行<code>String s = &quot;hello&quot;;</code>时，JVM虚拟机先创建字符串<code>&quot;hello&quot;</code>，然后，把字符串变量<code>s</code>指向它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      s</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">┌───┬───────────┬───┐</span><br><span class="line">│   │  &quot;hello&quot;  │   │</span><br><span class="line">└───┴───────────┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>紧接着，执行<code>s = &quot;world&quot;;</code>时，JVM虚拟机先创建字符串<code>&quot;world&quot;</code>，然后，把字符串变量<code>s</code>指向它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      s ──────────────┐</span><br><span class="line">                      │</span><br><span class="line">                      ▼</span><br><span class="line">┌───┬───────────┬───┬───────────┬───┐</span><br><span class="line">│   │  &quot;hello&quot;  │   │  &quot;world&quot;  │   │</span><br><span class="line">└───┴───────────┴───┴───────────┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>原来的字符串<code>&quot;hello&quot;</code>还在，只是我们无法通过变量<code>s</code>访问它而已。因此，字符串的不可变是指字符串内容不可变。</p>
+</li>
+</ul>
+</li>
+<li><p>注意要区分空值<code>null</code>和空字符串<code>&quot;&quot;</code>，空字符串是一个有效的字符串对象，它不等于<code>null</code></p>
+</li>
+<li><p>数组字符串</p>
+<ul>
+<li><p>字符串是引用类型，因此我们先定义一个字符串数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] names &#x3D; &#123;</span><br><span class="line">    &quot;ABC&quot;, &quot;XYZ&quot;, &quot;zoo&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>对于<code>String[]</code>类型的数组变量<code>names</code>，它实际上包含3个元素，但每个元素都指向某个字符串对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">          ┌─────────────────────────┐</span><br><span class="line">    names │   ┌─────────────────────┼───────────┐</span><br><span class="line">      │   │   │                     │           │</span><br><span class="line">      ▼   │   │                     ▼           ▼</span><br><span class="line">┌───┬───┬─┴─┬─┴─┬───┬───────┬───┬───────┬───┬───────┬───┐</span><br><span class="line">│   │░░░│░░░│░░░│   │ &quot;ABC&quot; │   │ &quot;XYZ&quot; │   │ &quot;zoo&quot; │   │</span><br><span class="line">└───┴─┬─┴───┴───┴───┴───────┴───┴───────┴───┴───────┴───┘</span><br><span class="line">      │                 ▲</span><br><span class="line">      └─────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>对<code>names[1]</code>进行赋值，例如<code>names[1] = &quot;cat&quot;;</code>，效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">          ┌─────────────────────────────────────────────────┐</span><br><span class="line">    names │   ┌─────────────────────────────────┐           │</span><br><span class="line">      │   │   │                                 │           │</span><br><span class="line">      ▼   │   │                                 ▼           ▼</span><br><span class="line">┌───┬───┬─┴─┬─┴─┬───┬───────┬───┬───────┬───┬───────┬───┬───────┬───┐</span><br><span class="line">│   │░░░│░░░│░░░│   │ &quot;ABC&quot; │   │ &quot;XYZ&quot; │   │ &quot;zoo&quot; │   │ &quot;cat&quot; │   │</span><br><span class="line">└───┴─┬─┴───┴───┴───┴───────┴───┴───────┴───┴───────┴───┴───────┴───┘</span><br><span class="line">      │                 ▲</span><br><span class="line">      └─────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>这里注意到原来<code>names[1]</code>指向的字符串<code>&quot;XYZ&quot;</code>并没有改变，仅仅是将<code>names[1]</code>的引用从指向<code>&quot;XYZ&quot;</code>改成了指向<code>&quot;cat&quot;</code>，其结果是字符串<code>&quot;XYZ&quot;</code>再也无法通过<code>names[1]</code>访问到了。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数组</p>
+<ul>
+<li>二维数组就是数组的数组，三维数组就是二维数组的数组；</li>
+<li>多维数组的每个数组元素长度都不要求相同；</li>
+<li>打印多维数组可以使用<code>Arrays.deepToString()</code>；</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>命令行参数<ul>
+<li>命令行参数类型是<code>String[]</code>数组；</li>
+<li>命令行参数由JVM接收用户输入并传给<code>main</code>方法；</li>
+<li>如何解析命令行参数需要由程序自己实现。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h4><ul>
+<li><p>重载</p>
+<ul>
+<li>方法重载是指多个方法的方法名相同，但各自的参数不同；</li>
+<li>重载方法应该完成类似的功能，参考<code>String</code>的<code>indexOf()</code>；</li>
+<li>重载方法返回值类型应该相同。</li>
+</ul>
+</li>
+<li><p>继承</p>
+<ul>
+<li><p>如果父类没有默认的构造方法，子类就必须显式调用<code>super()</code>并给出参数以便让编译器定位到父类的一个合适的构造方法</p>
+</li>
+<li><p>向上转型：</p>
+<ul>
+<li><p>向上转型实际上是把一个子类型安全地变为更加抽象的父类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Student s = <span class="keyword">new</span> Student();</span><br><span class="line">Person p = s; <span class="comment">// upcasting, ok</span></span><br><span class="line">Object o1 = p; <span class="comment">// upcasting, ok</span></span><br><span class="line">Object o2 = s; <span class="comment">// upcasting, ok</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>向下转型：父类类型强制转型为子类类型</p>
+<ul>
+<li><pre><code>Person p1 = new Student(); // upcasting, ok
+Person p2 = new Person();
+Student s1 = (Student) p1; // ok
+Student s2 = (Student) p2; // runtime error! ClassCastException!
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  测试上面的代码，可以发现：</span><br><span class="line"></span><br><span class="line">  &#96;Person&#96;类型&#96;p1&#96;实际指向&#96;Student&#96;实例，&#96;Person&#96;类型变量&#96;p2&#96;实际指向&#96;Person&#96;实例。在向下转型的时候，把&#96;p1&#96;转型为&#96;Student&#96;会成功，因为&#96;p1&#96;确实指向&#96;Student&#96;实例，把&#96;p2&#96;转型为&#96;Student&#96;会失败，因为&#96;p2&#96;的实际类型是&#96;Person&#96;，不能把父类变为子类，因为子类功能比父类多，多的功能无法凭空变出来。</span><br><span class="line"></span><br><span class="line">  因此，向下转型很可能会失败。失败的时候，Java虚拟机会报&#96;ClassCastException&#96;。</span><br><span class="line"></span><br><span class="line">- 利用&#96;instanceof&#96;，在向下转型前可以先判断：</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;java</span><br><span class="line">  Person p &#x3D; new Student();</span><br><span class="line">  if (p instanceof Student) &#123;</span><br><span class="line">      &#x2F;&#x2F; 只有判断成功才会向下转型:</span><br><span class="line">      Student s &#x3D; (Student) p; &#x2F;&#x2F; 一定会成功</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多态：针对某个类型的方法调用，其真正执行的方法取决于运行时期实际类型的方法</p>
+<ul>
+<li>允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码</li>
+<li>子类可以覆写父类的方法（Override），覆写在子类中改变了父类方法的行为；</li>
+<li>Java的方法调用总是作用于运行期对象的实际类型，这种行为称为多态；</li>
+<li><code>final</code>修饰符有多种作用：<ul>
+<li><code>final</code>修饰的方法可以阻止被覆写；</li>
+<li><code>final</code>修饰的class可以阻止被继承；</li>
+<li><code>final</code>修饰的field必须在创建对象时初始化，随后不可修改。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>抽象</p>
+<ul>
+<li>通过<code>abstract</code>定义的方法是抽象方法，它只有定义，没有实现。抽象方法定义了子类必须实现的接口规范；</li>
+<li>定义了抽象方法的class必须被定义为抽象类，从抽象类继承的子类必须实现抽象方法；</li>
+<li>如果不实现抽象方法，则该子类仍是一个抽象类；</li>
+<li>面向抽象编程使得调用者只关心抽象方法的定义，不关心子类的具体实现。</li>
+</ul>
+</li>
+<li><p>接口</p>
+<ul>
+<li><p>Java的接口（interface）定义了纯抽象规范，一个类可以实现多个接口；</p>
+</li>
+<li><p>接口也是数据类型，适用于向上转型和向下转型；</p>
+</li>
+<li><p>接口的所有方法都是抽象方法，接口不能定义实例字段；</p>
+</li>
+<li><p><code>interface</code>的字段只能是<code>public static final</code>类型</p>
+</li>
+<li><p>接口可以定义<code>default</code>方法（JDK&gt;=1.8）</p>
+<ul>
+<li>实现类可以不必覆写<code>default</code>方法</li>
+<li>新增的是<code>default</code>方法，那么子类就不必全部修改，只需要在需要覆写的地方去覆写新增方法</li>
+<li><code>default</code>方法无法访问字段，而抽象类的普通方法可以访问实例字段。</li>
+</ul>
+</li>
+<li><p>接口与抽象区别</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">abstract class</th>
+<th align="center">interface</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">继承</td>
+<td align="left">只能extends一个class</td>
+<td align="center">可以implements多个interface</td>
+</tr>
+<tr>
+<td align="left">字段</td>
+<td align="left">可以定义实例字段</td>
+<td align="center">不能定义实例字段</td>
+</tr>
+<tr>
+<td align="left">抽象方法</td>
+<td align="left">可以定义抽象方法</td>
+<td align="center">可以定义抽象方法</td>
+</tr>
+<tr>
+<td align="left">非抽象方法</td>
+<td align="left">可以定义非抽象方法</td>
+<td align="center">可以定义default方法</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>static关键字</p>
+<ul>
+<li>静态字段<ul>
+<li>静态字段并不属于实例，而属于class，所有实例共享一个静态字段</li>
+<li>实例对象能访问静态字段：编译器根据实例类型自动转换为<code>类名.静态字段</code>来访问静态对象（<strong>不推荐</strong>）</li>
+</ul>
+</li>
+<li>静态方法<ul>
+<li>调用静态方法不需要实例，无法访问<code>this</code>，但可以访问静态字段和其他静态方法；</li>
+<li>常用作辅助方法：<ul>
+<li>Arrays.sort()</li>
+<li>Math.random()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>包</p>
+<ul>
+<li>Java内建的<code>package</code>机制是为了避免<code>class</code>命名冲突；- </li>
+<li>JDK的核心类使用<code>java.lang</code>包，编译器会自动导入；</li>
+<li>JDK的其它常用类定义在<code>java.util.*</code>，<code>java.math.*</code>，<code>java.text.*</code>，……；</li>
+<li>包名推荐使用倒置的域名，例如<code>org.apache</code>。</li>
+</ul>
+</li>
+<li><p>作用域</p>
+<ul>
+<li>Java内建的访问权限包括<code>public</code>、<code>protected</code>、<code>private</code>和<code>package</code>权限；</li>
+<li>Java在方法内部定义的变量是局部变量，局部变量的作用域从变量声明开始，到一个块结束；</li>
+<li><code>final</code>修饰符不是访问权限，它可以修饰<code>class</code>、<code>field</code>和<code>method</code>；<ul>
+<li>用<code>final</code>修饰<code>class</code>可以阻止被继承</li>
+<li>用<code>final</code>修饰<code>method</code>可以阻止被子类覆写</li>
+<li>用<code>final</code>修饰<code>field</code>可以阻止被重新赋值</li>
+<li>用<code>final</code>修饰局部变量可以阻止被重新赋值</li>
+</ul>
+</li>
+<li>一个<code>.java</code>文件只能包含一个<code>public</code>类，但可以包含多个非<code>public</code>类。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="java核心类"><a href="#java核心类" class="headerlink" title="java核心类"></a>java核心类</h4><ul>
+<li><p>String</p>
+<ul>
+<li><pre><code class="java">String`是一个引用类型，它本身也是一个`<span class="class"><span class="keyword">class</span></span>
+<span class="class"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 字符串在&#96;String&#96;内部是通过一个&#96;char[]&#96;数组表示的，因此，按下面的写法也是可以的：</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;java</span><br><span class="line">  String s2 &#x3D; new String(new char[] &#123;&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;!&#39;&#125;);</span><br></pre></td></tr></table></figure></span></code></pre>
+</li>
+<li><p><strong>字符串<em>不可变</em></strong>。这种不可变性是通过内部的<code>private final char[]</code>字段，以及没有任何修改<code>char[]</code>的方法实现的。</p>
+</li>
+</ul>
+</li>
+<li><p>字符串比较</p>
+<ul>
+<li><p>比较是否相同：使用<code>equals()</code>方法而不能用<code>==</code></p>
+</li>
+<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        String s1 = <span class="string">"hello"</span>;
+        String s2 = <span class="string">"hello"</span>;
+        System.out.println(s1 == s2);
+        System.out.println(s1.equals(s2));
+    }
+}
+&lt;!--￼<span class="number">11</span>--&gt;
+
+而较新的JDK版本的`String`则以`<span class="keyword">byte</span>[]`存储：如果`String`仅包含ASCII字符，则每个`<span class="keyword">byte</span>`存储一个字符，否则，每两个`<span class="keyword">byte</span>`存储一个字符，这样做的目的是为了节省内存，因为大量的长度较短的`String`通常仅包含ASCII字符：
+
+&lt;!--￼<span class="number">12</span>--&gt;
+
+对于使用者来说，`String`内部的优化不影响任何已有代码，因为它的`<span class="keyword">public</span>`方法签名是不变的。</code></pre>
+</li>
+</ul>
+</li>
+<li><p>StringBuilder</p>
+<ul>
+<li><pre><code class="java">String s = <span class="string">""</span>;
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) {
+    s = s + <span class="string">","</span> + i;
+}
+&lt;!--￼<span class="number">13</span>--&gt;</code></pre>
+</li>
+<li><p>支持链式操作</p>
+<ul>
+<li>链式操作的关键是，定义的<code>append()</code>方法会返回<code>this</code></li>
+</ul>
+</li>
+<li><p><code>StringBuffer</code>是<code>StringBuilder</code>的线程安全版本，现在很少使用</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h4><p>Java的异常是<code>class</code>，它的继承关系如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">                     ┌───────────┐</span><br><span class="line">                     │  Object   │</span><br><span class="line">                     └───────────┘</span><br><span class="line">                           ▲</span><br><span class="line">                           │</span><br><span class="line">                     ┌───────────┐</span><br><span class="line">                     │ Throwable │</span><br><span class="line">                     └───────────┘</span><br><span class="line">                           ▲</span><br><span class="line">                 ┌─────────┴─────────┐</span><br><span class="line">                 │                   │</span><br><span class="line">           ┌───────────┐       ┌───────────┐</span><br><span class="line">           │   Error   │       │ Exception │</span><br><span class="line">           └───────────┘       └───────────┘</span><br><span class="line">                 ▲                   ▲</span><br><span class="line">         ┌───────┘              ┌────┴──────────┐</span><br><span class="line">         │                      │               │</span><br><span class="line">┌─────────────────┐    ┌─────────────────┐┌───────────┐</span><br><span class="line">│OutOfMemoryError │... │RuntimeException ││IOException│...</span><br><span class="line">└─────────────────┘    └─────────────────┘└───────────┘</span><br><span class="line">                                ▲</span><br><span class="line">                    ┌───────────┴─────────────┐</span><br><span class="line">                    │                         │</span><br><span class="line">         ┌─────────────────────┐ ┌─────────────────────────┐</span><br><span class="line">         │NullPointerException │ │IllegalArgumentException │...</span><br></pre></td></tr></table></figure>
+
+<p>从继承关系可知：<code>Throwable</code>是异常体系的根，它继承自<code>Object</code>。<code>Throwable</code>有两个体系：<code>Error</code>和<code>Exception</code>，<code>Error</code>表示严重的错误，程序对此一般无能为力，例如：</p>
+<ul>
+<li><code>OutOfMemoryError</code>：内存耗尽</li>
+<li><code>NoClassDefFoundError</code>：无法加载某个Class</li>
+<li><code>StackOverflowError</code>：栈溢出</li>
+</ul>
+<p>而<code>Exception</code>则是运行时的错误，它可以被捕获并处理。</p>
+<p>某些异常是应用程序逻辑处理的一部分，应该捕获并处理。例如：</p>
+<ul>
+<li><code>NumberFormatException</code>：数值类型的格式错误</li>
+<li><code>FileNotFoundException</code>：未找到文件</li>
+<li><code>SocketException</code>：读取网络失败</li>
+</ul>
+<p>还有一些异常是程序逻辑编写不对造成的，应该修复程序本身。例如：</p>
+<ul>
+<li><code>NullPointerException</code>：对某个<code>null</code>的对象调用方法或字段</li>
+<li><code>IndexOutOfBoundsException</code>：数组索引越界</li>
+</ul>
+<p><strong>java规定：</strong></p>
+<ul>
+<li>必须捕获的异常，包括<code>Exception</code>及其子类，但不包括<code>RuntimeException</code>及其子类，这种类型的异常称为Checked Exception。</li>
+<li>不需要捕获的异常，包括<code>Error</code>及其子类，<code>RuntimeException</code>及其子类。</li>
+</ul>
+<p>抛出异常：</p>
+<p>调用<code>printStackTrace()</code>可以打印异常的传播栈，对于调试非常有用；</p>
+<p>捕获异常并再次抛出新的异常时，应该持有原始异常信息；</p>
+<p>通常不要在<code>finally</code>中抛出异常。如果在<code>finally</code>中抛出异常，应该原始异常加入到原有异常中。调用方可通过<code>Throwable.getSuppressed()</code>获取所有添加的<code>Suppressed Exception</code>。</p>
+<hr>
+<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>def：反射就是Reflection，Java的反射是指程序在运行期可以拿到一个对象的所有信息</p>
+<p>targe：反射是为了解决在运行期，对某个实例一无所知的情况下，如何调用其方法</p>
+<ul>
+<li><p>class</p>
+<ul>
+<li><p>JVM为每个加载的<code>class</code>及<code>interface</code>创建了对应的<code>Class</code>实例来保存<code>class</code>及<code>interface</code>的所有信息</p>
+<ul>
+<li><p>除了基本类型（int）外，其他均为class</p>
+</li>
+<li><p>以<code>String</code>类为例，当JVM加载<code>String</code>类时，它首先读取<code>String.class</code>文件到内存，然后，为<code>String</code>类创建一个<code>Class</code>实例并关联起来：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = <span class="keyword">new</span> Class(String);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获取一个<code>class</code>对应的<code>Class</code>实例后，就可以获取该<code>class</code>的所有信息；</p>
+<ul>
+<li><p>一个<code>Class</code>实例包含了该<code>class</code>的所有完整信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────────────────┐</span><br><span class="line">│      Class Instance       │──────&gt; String</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│name = <span class="string">"java.lang.String"</span>  │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│<span class="keyword">package</span> = <span class="string">"java.lang"</span>      │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│<span class="keyword">super</span> = <span class="string">"java.lang.Object"</span> │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│<span class="class"><span class="keyword">interface</span> </span>= CharSequence...│</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│field = value[],hash,...   │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│method = indexOf()...      │</span><br><span class="line">└───────────────────────────┘</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>通过Class实例获取<code>class</code>信息的方法称为反射（Reflection）；</p>
+<ul>
+<li><p>如何获取一个<code>class</code>的<code>Class</code>实例？有三个方法：</p>
+<p>方法一：直接通过一个<code>class</code>的静态变量<code>class</code>获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = String<span class="class">.<span class="keyword">class</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>方法二：如果我们有一个实例变量，可以通过该实例变量提供的<code>getClass()</code>方法获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"Hello"</span>;</span><br><span class="line">Class cls = s.getClass();</span><br></pre></td></tr></table></figure>
+
+<p>方法三：如果知道一个<code>class</code>的完整类名，可以通过静态方法<code>Class.forName()</code>获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = Class.forName(<span class="string">"java.lang.String"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>JVM总是动态加载<code>class</code>，可以在运行期根据条件来控制加载class</p>
+</li>
+<li><p>因为<code>Class</code>实例在JVM中是唯一的，所以，上述方法获取的<code>Class</code>实例是同一个实例。可以用<code>==</code>比较两个<code>Class</code>实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Class cls1 = String<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"></span><br><span class="line">String s = <span class="string">"Hello"</span>;</span><br><span class="line">Class cls2 = s.getClass();</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> sameClass = cls1 == cls2; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JVM动态加载<code>class</code>的特性：jvm只有使用到某个类时才会加载到内存</p>
+</li>
+</ul>
+</li>
+<li><p>访问字段</p>
+<ul>
+<li><p>Java的反射API提供的<code>Field</code>类封装了字段的所有信息：</p>
+</li>
+<li><p>通过<code>Class</code>实例的方法可以获取<code>Field</code>实例：<code>getField()</code>，<code>getFields()</code>，<code>getDeclaredField()</code>，<code>getDeclaredFields()</code>；</p>
+</li>
+<li><p>通过Field实例可以获取字段信息：<code>getName()</code>，<code>getType()</code>，<code>getModifiers()</code>；</p>
+</li>
+<li><p>通过Field实例可以读取或设置某个对象的字段，如果存在访问限制，要首先调用<code>setAccessible(true)</code>来访问非<code>public</code>字段。</p>
+</li>
+<li><p>通过反射读写字段是一种非常规方法，它会破坏对象的封装。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h4><p>注解是放在Java源码的类、方法、字段、参数前的一种特殊“注释”</p>
+<p>Java的注解可以分为三类：</p>
+<ul>
+<li>第一类是由编译器使用的注解，例如：<ul>
+<li><code>@Override</code>：让编译器检查该方法是否正确地实现了覆写；</li>
+<li><code>@SuppressWarnings</code>：告诉编译器忽略此处代码产生的警告。</li>
+<li>这类注解不会被编译进入<code>.class</code>文件，它们在编译后就被编译器扔掉了。</li>
+</ul>
+</li>
+<li>第二类是由工具处理<code>.class</code>文件使用的注解，这类注解会被编译进入<code>.class</code>文件，但加载结束后并不会存在于内存中。这类注解只被一些底层库使用，一般我们不必自己处理。</li>
+<li>第三类是在程序运行期能够读取的注解，它们在加载后一直存在于JVM中，这也是最常用的注解。例如，一个配置了<code>@PostConstruct</code>的方法会在调用构造方法后自动被调用（这是Java代码读取该注解实现的功能，JVM并不会识别该注解）。</li>
+</ul>
+<hr>
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><ul>
+<li><p>简介</p>
+<ul>
+<li><code>List</code>：一种有序列表的集合，例如，按索引排列的<code>Student</code>的<code>List</code>；</li>
+<li><code>Set</code>：一种保证没有重复元素的集合，例如，所有无重复名称的<code>Student</code>的<code>Set</code>；</li>
+<li><code>Map</code>：一种通过键值（key-value）查找的映射表集合，例如，根据<code>Student</code>的<code>name</code>查找对应<code>Student</code>的<code>Map</code>。</li>
+</ul>
+</li>
+<li><p>特点</p>
+<ul>
+<li>接口与实现分离</li>
+<li>支持泛型</li>
+</ul>
+</li>
+<li><p>Java集合使用统一的<code>Iterator</code>遍历</p>
+</li>
+<li><p>list：顺序列表</p>
+<ul>
+<li><code>ArrayList</code><ul>
+<li>在内部使用了数组来存储所有元素</li>
+<li>数组已满，没有空闲位置的时候，<code>ArrayList</code>先创建一个更大的新数组，然后把旧数组的所有元素复制到新数组，紧接着用新数组取代旧数组</li>
+<li>添加和删除的操作封装起来，让我们操作<code>List</code>类似于操作数组，却不用关心内部元素如何移动</li>
+</ul>
+</li>
+<li>LinkedList<ul>
+<li>链表形式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>比较一下<code>ArrayList</code>和<code>LinkedList</code>：</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">ArrayList</th>
+<th align="left">LinkedList</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">获取指定元素</td>
+<td align="left">速度很快</td>
+<td align="left">需要从头开始查找元素</td>
+</tr>
+<tr>
+<td align="left">添加元素到末尾</td>
+<td align="left">速度很快</td>
+<td align="left">速度很快</td>
+</tr>
+<tr>
+<td align="left">在指定位置添加/删除</td>
+<td align="left">需要移动元素</td>
+<td align="left">不需要移动元素</td>
+</tr>
+<tr>
+<td align="left">内存占用</td>
+<td align="left">少</td>
+<td align="left">较大</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>equals</p>
+<ul>
+<li><p><code>List</code>的实现类通过元素的<code>equals()</code>方法比较两个元素是否相等</p>
+</li>
+<li><p>Java标准库提供的<code>String</code>、<code>Integer</code>等已经覆写了<code>equals()</code>方法</p>
+</li>
+<li><p>自定义的对象需要覆写euquals方法</p>
+<ul>
+<li><p>如何正确编写<code>equals()</code>方法？<code>equals()</code>方法要求我们必须满足以下条件：</p>
+<ul>
+<li>自反性（Reflexive）：对于非<code>null</code>的<code>x</code>来说，<code>x.equals(x)</code>必须返回<code>true</code>；</li>
+<li>对称性（Symmetric）：对于非<code>null</code>的<code>x</code>和<code>y</code>来说，如果<code>x.equals(y)</code>为<code>true</code>，则<code>y.equals(x)</code>也必须为<code>true</code>；</li>
+<li>传递性（Transitive）：对于非<code>null</code>的<code>x</code>、<code>y</code>和<code>z</code>来说，如果<code>x.equals(y)</code>为<code>true</code>，<code>y.equals(z)</code>也为<code>true</code>，那么<code>x.equals(z)</code>也必须为<code>true</code>；</li>
+<li>一致性（Consistent）：对于非<code>null</code>的<code>x</code>和<code>y</code>来说，只要<code>x</code>和<code>y</code>状态不变，则<code>x.equals(y)</code>总是一致地返回<code>true</code>或者<code>false</code>；</li>
+<li>对<code>null</code>的比较：即<code>x.equals(null)</code>永远返回<code>false</code>。</li>
+</ul>
+</li>
+<li><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>{
+    <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Person) {
+        Person p = (Person) o;
+        <span class="keyword">return</span> <span class="keyword">this</span>.name.equals(p.name) &amp;&amp; <span class="keyword">this</span>.age == p.age;
+    }
+    <span class="keyword">return</span> <span class="keyword">false</span>;
+}
+&lt;!--￼<span class="number">21</span>--&gt;
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- **`entrySet()`集合**
+
+  - ```java
+    for (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) {
+                String key = entry.getKey();
+                Integer value = entry.getValue();
+                System.out.println(key + &quot; = &quot; + value);
+            }
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 在&#96;Map&#96;的内部，对&#96;key&#96;做比较是通过&#96;equals()&#96;实现的</span><br><span class="line"></span><br><span class="line">    - 使用&#96;String&#96;作为&#96;key&#96;，因为&#96;String&#96;已经正确覆写了&#96;equals()&#96;方法</span><br><span class="line"></span><br><span class="line">    - 编写&#96;equals()&#96;和&#96;hashCode()&#96;遵循的原则是：</span><br><span class="line"></span><br><span class="line">      - &#96;equals()&#96;用到的用于比较的每一个字段，都必须在&#96;hashCode()&#96;中用于计算；</span><br><span class="line">      - &#96;equals()&#96;中没有使用到的字段，绝不可放在&#96;hashCode()&#96;中计算。</span><br><span class="line"></span><br><span class="line">      另外注意，对于放入&#96;HashMap&#96;的&#96;value&#96;对象，没有任何要求</span><br><span class="line"></span><br><span class="line">### 延伸阅读</span><br><span class="line"></span><br><span class="line">既然&#96;HashMap&#96;内部使用了数组，通过计算&#96;key&#96;的&#96;hashCode()&#96;直接定位&#96;value&#96;所在的索引，那么第一个问题来了：hashCode()返回的&#96;int&#96;范围高达±21亿，先不考虑负数，&#96;HashMap&#96;内部使用的数组得有多大？</span><br><span class="line"></span><br><span class="line">实际上&#96;HashMap&#96;初始化时默认的数组大小只有16，任何&#96;key&#96;，无论它的&#96;hashCode()&#96;有多大，都可以简单地通过：</span><br></pre></td></tr></table></figure></code></pre><p>int index = key.hashCode() &amp; 0xf; // 0xf = 15</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">把索引确定在0～15，即永远不会超出数组范围，上述算法只是一种最简单的实现。</span><br><span class="line"></span><br><span class="line">第二个问题：如果添加超过16个&#96;key-value&#96;到&#96;HashMap&#96;，数组不够用了怎么办？</span><br><span class="line"></span><br><span class="line">添加超过一定数量的&#96;key-value&#96;时，&#96;HashMap&#96;会在内部自动扩容，每次扩容一倍，即长度为16的数组扩展为长度32，相应地，需要重新确定&#96;hashCode()&#96;计算的索引位置。例如，对长度为32的数组计算&#96;hashCode()&#96;对应的索引，计算方式要改为：</span><br></pre></td></tr></table></figure>
+<p>int index = key.hashCode() &amp; 0x1f; // 0x1f = 31</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">由于扩容会导致重新分布已有的&#96;key-value&#96;，所以，频繁扩容对&#96;HashMap&#96;的性能影响很大。如果我们确定要使用一个容量为&#96;10000&#96;个&#96;key-value&#96;的&#96;HashMap&#96;，更好的方式是创建&#96;HashMap&#96;时就指定容量：</span><br></pre></td></tr></table></figure>
+<p>Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;(10000);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">虽然指定容量是&#96;10000&#96;，但&#96;HashMap&#96;内部的数组长度总是2n，因此，实际数组长度被初始化为比&#96;10000&#96;大的&#96;16384&#96;（214）。</span><br><span class="line"></span><br><span class="line">最后一个问题：如果不同的两个&#96;key&#96;，例如&#96;&quot;a&quot;&#96;和&#96;&quot;b&quot;&#96;，它们的&#96;hashCode()&#96;恰好是相同的（这种情况是完全可能的，因为不相等的两个实例，只要求&#96;hashCode()&#96;尽量不相等），那么，当我们放入：</span><br></pre></td></tr></table></figure>
+<p>map.put(“a”, new Person(“Xiao Ming”));<br>map.put(“b”, new Person(“Xiao Hong”));</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">时，由于计算出的数组索引相同，后面放入的&#96;&quot;Xiao Hong&quot;&#96;会不会把&#96;&quot;Xiao Ming&quot;&#96;覆盖了？</span><br><span class="line"></span><br><span class="line">当然不会！使用&#96;Map&#96;的时候，只要&#96;key&#96;不相同，它们映射的&#96;value&#96;就互不干扰。但是，在&#96;HashMap&#96;内部，确实可能存在不同的&#96;key&#96;，映射到相同的&#96;hashCode()&#96;，即相同的数组索引上，肿么办？</span><br><span class="line"></span><br><span class="line">我们就假设&#96;&quot;a&quot;&#96;和&#96;&quot;b&quot;&#96;这两个&#96;key&#96;最终计算出的索引都是5，那么，在&#96;HashMap&#96;的数组中，实际存储的不是一个&#96;Person&#96;实例，而是一个&#96;List&#96;，它包含两个&#96;Entry&#96;，一个是&#96;&quot;a&quot;&#96;的映射，一个是&#96;&quot;b&quot;&#96;的映射：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;ascii</span><br><span class="line">  ┌───┐</span><br><span class="line">0 │   │</span><br><span class="line">  ├───┤</span><br><span class="line">1 │   │</span><br><span class="line">  ├───┤</span><br><span class="line">2 │   │</span><br><span class="line">  ├───┤</span><br><span class="line">3 │   │</span><br><span class="line">  ├───┤</span><br><span class="line">4 │   │</span><br><span class="line">  ├───┤</span><br><span class="line">5 │ ●─┼───&gt; List&lt;Entry&lt;String, Person&gt;&gt;</span><br><span class="line">  ├───┤</span><br><span class="line">6 │   │</span><br><span class="line">  ├───┤</span><br><span class="line">7 │   │</span><br><span class="line">  └───┘</span><br></pre></td></tr></table></figure>
+
+<p>在查找的时候，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person p &#x3D; map.get(&quot;a&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>HashMap内部通过<code>&quot;a&quot;</code>找到的实际上是<code>List&gt;</code>，它还需要遍历这个<code>List</code>，并找到一个<code>Entry</code>，它的<code>key</code>字段是<code>&quot;a&quot;</code>，才能返回对应的<code>Person</code>实例。</p>
+<p>我们把不同的<code>key</code>具有相同的<code>hashCode()</code>的情况称之为哈希冲突。在冲突的时候，一种最简单的解决办法是用<code>List</code>存储<code>hashCode()</code>相同的<code>key-value</code>。显然，如果冲突的概率越大，这个<code>List</code>就越长，<code>Map</code>的<code>get()</code>方法效率就越低，这就是为什么要尽量满足条件二：</p>
+<p> 如果两个对象不相等，则两个对象的hashCode()尽量不要相等。</p>
+<p><code>hashCode()</code>方法编写得越好，<code>HashMap</code>工作的效率就越高。</p>
+<ul>
+<li><h4 id="EnumMap"><a href="#EnumMap" class="headerlink" title="EnumMap"></a>EnumMap</h4><ul>
+<li><p>如果<code>Map</code>的key是<code>enum</code>类型，推荐使用<code>EnumMap</code>，既保证速度，也不浪费空间</p>
+</li>
+<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        Map&lt;DayOfWeek, String&gt; map = <span class="keyword">new</span> EnumMap&lt;&gt;(DayOfWeek<span class="class">.<span class="keyword">class</span>)</span>;
+        map.put(DayOfWeek.MONDAY, <span class="string">"星期一"</span>);
+        map.put(DayOfWeek.TUESDAY, <span class="string">"星期二"</span>);
+        map.put(DayOfWeek.WEDNESDAY, <span class="string">"星期三"</span>);
+        map.put(DayOfWeek.THURSDAY, <span class="string">"星期四"</span>);
+        map.put(DayOfWeek.FRIDAY, <span class="string">"星期五"</span>);
+        map.put(DayOfWeek.SATURDAY, <span class="string">"星期六"</span>);
+        map.put(DayOfWeek.SUNDAY, <span class="string">"星期日"</span>);
+        System.out.println(map);
+        System.out.println(map.get(DayOfWeek.MONDAY));
+    }
+}
+&lt;!--￼<span class="number">28</span>--&gt;</code></pre>
+</li>
+<li><p>Key必须实现<code>Comparable</code>接口,TreeMap<code>不使用</code>equals()<code>和</code>hashCode()</p>
+</li>
+<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        Map&lt;Student, Integer&gt; map = <span class="keyword">new</span> TreeMap&lt;&gt;(<span class="keyword">new</span> Comparator&lt;Student&gt;() {
+            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student p1, Student p2)</span> </span>{
+                <span class="keyword">if</span> (p1.score == p2.score) {
+                    <span class="keyword">return</span> <span class="number">0</span>;
+                }
+                <span class="keyword">return</span> p1.score &gt; p2.score ? -<span class="number">1</span> : <span class="number">1</span>;
+            }
+        });
+        map.put(<span class="keyword">new</span> Student(<span class="string">"Tom"</span>, <span class="number">77</span>), <span class="number">1</span>);
+        map.put(<span class="keyword">new</span> Student(<span class="string">"Bob"</span>, <span class="number">66</span>), <span class="number">2</span>);
+        map.put(<span class="keyword">new</span> Student(<span class="string">"Lily"</span>, <span class="number">99</span>), <span class="number">3</span>);
+        <span class="keyword">for</span> (Student key : map.keySet()) {
+            System.out.println(key);
+        }
+        System.out.println(map.get(<span class="keyword">new</span> Student(<span class="string">"Bob"</span>, <span class="number">66</span>))); <span class="comment">// 重写方法，相等为0</span>
+    }
+}
+&lt;!--￼<span class="number">29</span>--&gt;</code></pre>
+</li>
+<li><pre><code class="ascii">       ┌───┐
+       │Set│
+       └───┘
+         ▲
+    ┌────┴─────┐
+    │          │
+┌───────┐ ┌─────────┐
+│HashSet│ │SortedSet│
+└───────┘ └─────────┘
+               ▲
+               │
+          ┌─────────┐
+          │ TreeSet │
+          └─────────┘
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - &#96;HashSet&#96;是无序的，因为它实现了&#96;Set&#96;接口，并没有实现&#96;SortedSet&#96;接口；</span><br><span class="line"></span><br><span class="line">  - &#96;TreeSet&#96;是有序的，因为它实现了&#96;SortedSet&#96;接口。</span><br><span class="line"></span><br><span class="line">    - 添加的元素必须正确实现&#96;Comparable&#96;接口，如果没有实现&#96;Comparable&#96;接口，那么创建&#96;TreeSet&#96;时必须传入一个&#96;Comparator&#96;对象。</span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"></span><br><span class="line">#### IO流</span><br><span class="line"></span><br><span class="line">IO流是一种流式的数据输入&#x2F;输出模型：</span><br><span class="line"></span><br><span class="line">- 二进制数据以&#96;byte&#96;为最小单位在&#96;InputStream&#96;&#x2F;&#96;OutputStream&#96;中单向流动；</span><br><span class="line">- 字符数据以&#96;char&#96;为最小单位在&#96;Reader&#96;&#x2F;&#96;Writer&#96;中单向流动。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**File**：Java标准库的&#96;java.io.File&#96;对象表示一个文件或者目录：</span><br><span class="line"></span><br><span class="line">- 创建&#96;File&#96;对象本身不涉及IO操作；</span><br><span class="line"></span><br><span class="line">- 可以获取路径／绝对路径／规范路径：&#96;getPath()&#96;&#x2F;&#96;getAbsolutePath()&#96;&#x2F;&#96;getCanonicalPath()&#96;；</span><br><span class="line"></span><br><span class="line">- 可以获取目录的文件和子目录：&#96;list()&#96;&#x2F;&#96;listFiles()&#96;；</span><br><span class="line"></span><br><span class="line">- 可以创建或删除文件和目录。</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;java</span><br><span class="line">  public class Main &#123;</span><br><span class="line">      public static void main(String[] args) throws IOException &#123;</span><br><span class="line">          File f &#x3D; new File(&quot;..&quot;);</span><br><span class="line">          System.out.println(f.getPath());</span><br><span class="line">          System.out.println(f.getAbsolutePath());</span><br><span class="line">          System.out.println(f.getCanonicalPath());</span><br><span class="line">          File file &#x3D; new File(&quot;&#x2F;path&#x2F;to&#x2F;file&quot;);</span><br><span class="line">          #-----------------------------------------</span><br><span class="line">          if (file.createNewFile()) &#123;</span><br><span class="line">              &#x2F;&#x2F; 文件创建成功:</span><br><span class="line">              &#x2F;&#x2F; TODO:</span><br><span class="line">              if (file.delete()) &#123;</span><br><span class="line">                  &#x2F;&#x2F; 删除文件成功:</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>inputsteam</strong>: 是一个抽象类，而不是接口，是所有输入流的超类（以字节为单位）</p>
+<ul>
+<li><p>面向抽象编程原则的应用：接受<code>InputStream</code>抽象类型，而不是具体的<code>FileInputStream</code>类型，从而使得代码可以处理<code>InputStream</code>的任意实现类</p>
+</li>
+<li><p>fileinputstream</p>
+<ul>
+<li><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>{
+    <span class="keyword">try</span> (InputStream input = <span class="keyword">new</span> FileInputStream(<span class="string">"src/readme.txt"</span>)) {
+        <span class="comment">// 定义1000个字节大小的缓冲区:</span>
+        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1000</span>];
+        <span class="keyword">int</span> n;
+        <span class="keyword">while</span> ((n = input.read(buffer)) != -<span class="number">1</span>) { <span class="comment">// 读取到缓冲区</span>
+            System.out.println(<span class="string">"read "</span> + n + <span class="string">" bytes."</span>);
+        }
+    }
+}
+&lt;!--￼<span class="number">31</span>--&gt;
+<span class="number">1</span>.利用Java <span class="number">7</span>引入的新的<span class="keyword">try</span>(resource)的语法，只需要编写<span class="keyword">try</span>语句，让编译器自动为我们关闭资源
+<span class="number">2</span>.编译器只看<span class="keyword">try</span>(resource = ...)中的对象是否实现了java.lang.AutoCloseable接口，如果实现了，就自动加上<span class="keyword">finally</span>语句并调用close()方法。
+<span class="number">3</span>.read方法是阻塞的（返回后才能继续）
+&lt;!--￼<span class="number">32</span>--&gt;
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>装饰模式</strong>：运行时动态的增加功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">                 ┌─────────────┐</span><br><span class="line">                 │ InputStream │</span><br><span class="line">                 └─────────────┘</span><br><span class="line">                       ▲ ▲</span><br><span class="line">┌────────────────────┐ │ │ ┌─────────────────┐</span><br><span class="line">│  FileInputStream   │─┤ └─│FilterInputStream│</span><br><span class="line">└────────────────────┘ │   └─────────────────┘</span><br><span class="line">┌────────────────────┐ │     ▲ ┌───────────────────┐</span><br><span class="line">│ByteArrayInputStream│─┤     ├─│BufferedInputStream│</span><br><span class="line">└────────────────────┘ │     │ └───────────────────┘</span><br><span class="line">┌────────────────────┐ │     │ ┌───────────────────┐</span><br><span class="line">│ ServletInputStream │─┘     ├─│  DataInputStream  │</span><br><span class="line">└────────────────────┘       │ └───────────────────┘</span><br><span class="line">                             │ ┌───────────────────┐</span><br><span class="line">                             └─│CheckedInputStream │</span><br><span class="line">                               └───────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>编写一个<code>CountInputStream</code>，它的作用是对输入的字节进行计数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">byte</span>[] data = <span class="string">"hello, world!"</span>.getBytes(<span class="string">"UTF-8"</span>);</span><br><span class="line">        <span class="keyword">try</span> (CountInputStream input = <span class="keyword">new</span> CountInputStream(<span class="keyword">new</span> ByteArrayInputStream(data))) &#123;</span><br><span class="line">            <span class="keyword">int</span> n;</span><br><span class="line">            <span class="keyword">while</span> ((n = input.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println((<span class="keyword">char</span>)n);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Total read "</span> + input.getBytesRead() + <span class="string">" bytes"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountInputStream</span> <span class="keyword">extends</span> <span class="title">FilterInputStream</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    CountInputStream(InputStream in) &#123;</span><br><span class="line">        <span class="keyword">super</span>(in);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBytesRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = in.read();</span><br><span class="line">        <span class="keyword">if</span> (n != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.count ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span>[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = in.read(b, off, len);</span><br><span class="line">        <span class="keyword">this</span>.count += n;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>classpath路径：</strong>避免不同环境下文件路径不一致的问题</p>
+<p>调用<code>getResourceAsStream()</code>需要特别注意的一点是，如果资源文件不存在，它将返回<code>null</code>。因此，我们需要检查返回的<code>InputStream</code>是否为<code>null</code>，如果为<code>null</code>，表示资源文件在classpath中没有找到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try (InputStream input &#x3D; getClass().getResourceAsStream(&quot;&#x2F;default.properties&quot;)) &#123;</span><br><span class="line">    if (input !&#x3D; null) &#123;</span><br><span class="line">        &#x2F;&#x2F; TODO:</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们把默认的配置放到jar包中，再从外部文件系统读取一个可选的配置文件，就可以做到既有默认的配置文件，又可以让用户自己修改配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Properties props &#x3D; new Properties();</span><br><span class="line">props.load(inputStreamFromClassPath(&quot;&#x2F;default.properties&quot;));</span><br><span class="line">props.load(inputStreamFromFile(&quot;.&#x2F;conf.properties&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>这样读取配置文件，应用程序启动就更加灵活</p>
+<p><strong>序列化</strong></p>
+<p><strong>Reader</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">InputStream</th>
+<th align="left">Reader</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">字节流，以<code>byte</code>为单位</td>
+<td align="left">字符流，以<code>char</code>为单位</td>
+</tr>
+<tr>
+<td align="left">读取字节（-1，0~255）：<code>int read()</code></td>
+<td align="left">读取字符（-1，0~65535）：<code>int read()</code></td>
+</tr>
+<tr>
+<td align="left">读到字节数组：<code>int read(byte[] b)</code></td>
+<td align="left">读到字符数组：<code>int read(char[] c)</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> (Reader reader = <span class="keyword">new</span> FileReader(<span class="string">"src/readme.txt"</span>, StandardCharsets.UTF_8)) &#123;</span><br><span class="line">        <span class="keyword">char</span>[] buffer = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1000</span>];</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="keyword">while</span> ((n = reader.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"read "</span> + n + <span class="string">" chars."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Reader</code>是基于<code>InputStream</code>构造的：可以通过<code>InputStreamReader</code>在指定编码的同时将任何<code>InputStream</code>转换为<code>Reader</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 持有InputStream:</span></span><br><span class="line">InputStream input = <span class="keyword">new</span> FileInputStream(<span class="string">"src/readme.txt"</span>);</span><br><span class="line"><span class="comment">// 变换为Reader:</span></span><br><span class="line">Reader reader = <span class="keyword">new</span> InputStreamReader(input, <span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>write</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">OutputStream</th>
+<th align="left">Writer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">字节流，以<code>byte</code>为单位</td>
+<td align="left">字符流，以<code>char</code>为单位</td>
+</tr>
+<tr>
+<td align="left">写入字节（0~255）：<code>void write(int b)</code></td>
+<td align="left">写入字符（0~65535）：<code>void write(int c)</code></td>
+</tr>
+<tr>
+<td align="left">写入字节数组：<code>void write(byte[] b)</code></td>
+<td align="left">写入字符数组：<code>void write(char[] c)</code></td>
+</tr>
+<tr>
+<td align="left">无对应方法</td>
+<td align="left">写入String：<code>void write(String s)</code></td>
+</tr>
+</tbody></table>
+<h3 id="FileWriter"><a href="#FileWriter" class="headerlink" title="FileWriter"></a>FileWriter</h3><p><code>FileWriter</code>就是向文件中写入字符流的<code>Writer</code>。它的使用方法和<code>FileReader</code>类似：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (Writer writer = <span class="keyword">new</span> FileWriter(<span class="string">"readme.txt"</span>, StandardCharsets.UTF_8)) &#123;</span><br><span class="line">    writer.write(<span class="string">'H'</span>); <span class="comment">// 写入单个字符</span></span><br><span class="line">    writer.write(<span class="string">"Hello"</span>.toCharArray()); <span class="comment">// 写入char[]</span></span><br><span class="line">    writer.write(<span class="string">"Hello"</span>); <span class="comment">// 写入String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Writer</code>是基于<code>OutputStream</code>构造的，可以通过<code>OutputStreamWriter</code>将<code>OutputStream</code>转换为<code>Writer</code>，转换时需要指定编码</p>
+<p><code>PrintStream</code>是一种能接收各种数据类型的输出，打印数据时比较方便：</p>
+<ul>
+<li><code>System.out</code>是标准输出；</li>
+<li><code>System.err</code>是标准错误输出。</li>
+</ul>
+<p><code>PrintWriter</code>是基于<code>Writer</code>的输出</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/26/%E7%BD%91%E7%BB%9C/" rel="prev" title="网络">
+      <i class="fa fa-chevron-left"></i> 网络
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/26/%E7%AE%97%E6%B3%95%E4%BD%9C%E4%B8%9A/" rel="next" title="算法作业">
+      算法作业 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javase"><span class="nav-number">1.</span> <span class="nav-text">javase</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java程序基础"><span class="nav-number">1.0.2.</span> <span class="nav-text">java程序基础</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#溢出"><span class="nav-number">1.1.</span> <span class="nav-text">溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java核心类"><span class="nav-number">1.1.2.</span> <span class="nav-text">java核心类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常处理"><span class="nav-number">1.1.3.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射"><span class="nav-number">1.1.4.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注解"><span class="nav-number">1.1.5.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集合"><span class="nav-number">1.1.6.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EnumMap"><span class="nav-number">1.1.7.</span> <span class="nav-text">EnumMap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileWriter"><span class="nav-number">1.2.</span> <span class="nav-text">FileWriter</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MRZ</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MRZ</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
