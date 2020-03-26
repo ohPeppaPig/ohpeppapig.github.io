@@ -20,28 +20,36 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MRZ的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="剑指offer 数组中重复的数字1描述：在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组&amp;#123;2,3,1,0,2,5,3&amp;#125;，那么对应的输出是第一个重复的数字2   它考察的是程序员的沟通能力，先问面试官要时间&#x2F;空间需求！！！只是时间优">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer">
+<meta property="og:url" content="http://yoursite.com/2020/03/26/%E5%89%91%E6%8C%87offer/index.html">
 <meta property="og:site_name" content="MRZ的博客">
+<meta property="og:description" content="剑指offer 数组中重复的数字1描述：在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组&amp;#123;2,3,1,0,2,5,3&amp;#125;，那么对应的输出是第一个重复的数字2   它考察的是程序员的沟通能力，先问面试官要时间&#x2F;空间需求！！！只是时间优">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:%5CUsers%5C%E5%8D%97%E5%A4%A7%E5%AE%8B%E4%BB%B2%E5%9F%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200227175142167.png">
+<meta property="og:image" content="c:/Users/南大宋仲基/AppData/Roaming/Typora/typora-user-images/image-20200303214920868.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-ec6f1e5c8bd7902a4d6b2ffdf024e54f_1440w.jpg">
+<meta property="article:published_time" content="2020-03-26T05:28:02.065Z">
+<meta property="article:modified_time" content="2020-03-26T03:59:42.576Z">
 <meta property="article:author" content="MRZ">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5C%E5%8D%97%E5%A4%A7%E5%AE%8B%E4%BB%B2%E5%9F%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200227175142167.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/03/26/%E5%89%91%E6%8C%87offer/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>MRZ的博客</title>
+  <title>剑指offer | MRZ的博客</title>
   
 
 
@@ -140,11 +148,11 @@
         <div class="content-wrap">
           
 
-          <div class="content index">
+          <div class="content post">
             
 
   <div class="posts-expand">
-        
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -160,10 +168,9 @@
       <meta itemprop="name" content="MRZ的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/26/%E5%89%91%E6%8C%87offer/" class="post-title-link" itemprop="url">剑指offer</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          剑指offer
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -187,7 +194,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>剑指offer</p>
+        <p>剑指offer</p>
 <h4 id="数组中重复的数字"><a href="#数组中重复的数字" class="headerlink" title="数组中重复的数字"></a>数组中重复的数字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">描述：在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组&#123;2,3,1,0,2,5,3&#125;，那么对应的输出是第一个重复的数字2</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -1351,284 +1358,33 @@
 </code></pre></li>
 </ul>
 <h4 id=""><a href="#" class="headerlink" title=""></a></h4>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MRZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MRZ的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/26/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">源码解析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-26 13:11:50" itemprop="dateCreated datePublished" datetime="2020-03-26T13:11:50+08:00">2020-03-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-12 18:45:31" itemprop="dateModified" datetime="2020-03-12T18:45:31+08:00">2020-03-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h4 id="不变性"><a href="#不变性" class="headerlink" title="不变性"></a>不变性</h4><ul>
-<li><pre><code class="java"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span>
-<span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>{
-    <span class="comment">/** The value is used for character storage. */</span>
-    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];
-} 
-&lt;!--￼<span class="number">0</span>--&gt;</code></pre>
-</li>
-<li><p>唯一的解决办法，就是在所有需要用到编码的地方，都统一使用 UTF-8</p>
-</li>
-<li><p>getBytes 和 new String 两个方法都会使用到编码，我们把这两处的编码替换成 UTF-8 后，打印出的结果就正常了</p>
-<ul>
-<li><pre><code>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 相等判断</span><br><span class="line"></span><br><span class="line">- equals 和 equalsIgnoreCase。后者判断相等时，会忽略大小写，近期看见一些面试题在问：如果让你写判断两个 String 相等的逻辑，应该如何写</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;java</span><br><span class="line">  public boolean equals(Object anObject) &#123;</span><br><span class="line">      &#x2F;&#x2F; 判断内存地址是否相同</span><br><span class="line">      if (this &#x3D;&#x3D; anObject) &#123;</span><br><span class="line">          return true;</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F; 待比较的对象是否是 String，如果不是 String，直接返回不相等</span><br><span class="line">      if (anObject instanceof String) &#123;</span><br><span class="line">          String anotherString &#x3D; (String)anObject;</span><br><span class="line">          int n &#x3D; value.length;</span><br><span class="line">          &#x2F;&#x2F; 两个字符串的长度是否相等，不等则直接返回不相等</span><br><span class="line">          if (n &#x3D;&#x3D; anotherString.value.length) &#123;</span><br><span class="line">              char v1[] &#x3D; value;</span><br><span class="line">              char v2[] &#x3D; anotherString.value;</span><br><span class="line">              int i &#x3D; 0;</span><br><span class="line">              &#x2F;&#x2F; 依次比较每个字符是否相等，若有一个不等，直接返回不相等</span><br><span class="line">              while (n-- !&#x3D; 0) &#123;</span><br><span class="line">                  if (v1[i] !&#x3D; v2[i])</span><br><span class="line">                      return false;</span><br><span class="line">                  i++;</span><br><span class="line">              &#125;</span><br><span class="line">              return true;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return false;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></code></pre></li>
-<li><p>判断内存地址</p>
-</li>
-<li><p>转为比较string内部char数组：相同长度，字符匹配</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="long"><a href="#long" class="headerlink" title="long"></a>long</h2><h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><ul>
-<li><p>Long 自己实现了一种缓存机制，缓存了从 -128 到 127 内的所有 Long 值，如果是这个范围内的 Long 值，就不会初始化，而是从缓存中拿</p>
-</li>
-<li><pre><code class="java"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">LongCache</span> </span>{
-    <span class="function"><span class="keyword">private</span> <span class="title">LongCache</span><span class="params">()</span></span>{}
-    <span class="comment">// 缓存，范围从 -128 到 127，+1 是因为有个 0</span>
-    <span class="keyword">static</span> <span class="keyword">final</span> Long cache[] = <span class="keyword">new</span> Long[-(-<span class="number">128</span>) + <span class="number">127</span> + <span class="number">1</span>];
-
-    <span class="comment">// 容器初始化时，进行加载</span>
-    <span class="keyword">static</span> {
-        <span class="comment">// 缓存 Long 值，注意这里是 i - 128 ，所以再拿的时候就需要 + 128</span>
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cache.length; i++)
-            cache[i] = <span class="keyword">new</span> Long(i - <span class="number">128</span>);
-    }
-}
-&lt;!--￼<span class="number">2</span>--&gt;
-</code></pre>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//如果初始化数组大小时，有给定初始值，以给定的大小为准，不走 if 逻辑</span></span><br><span class="line">  <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">    minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//确保容积足够</span></span><br><span class="line">  ensureExplicitCapacity(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//记录数组被修改</span></span><br><span class="line">  modCount++;</span><br><span class="line">  <span class="comment">// 如果我们期望的最小容量大于目前数组的长度，那么就扩容</span></span><br><span class="line">  <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">    grow(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//扩容，并把现有数据拷贝到新的数组里面去</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">  <span class="comment">// oldCapacity &gt;&gt; 1 是把 oldCapacity 除以 2 的意思</span></span><br><span class="line">  <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line"><span class="comment">// newCapacity 本次扩容的大小，minCapacity 我们期望的数组最小大小</span></span><br><span class="line">  <span class="comment">// 如果扩容后的值 &lt; 我们的期望值，扩容后的值就等于我们的期望值</span></span><br><span class="line">  <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">    newCapacity = minCapacity;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果扩容后的值 &gt; jvm 所能分配的数组的最大值，那么就用 Integer 的最大值</span></span><br><span class="line">  <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">    newCapacity = hugeCapacity(minCapacity);</span><br><span class="line"> </span><br><span class="line">  <span class="comment">// 通过复制进行扩容</span></span><br><span class="line">  elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意的地方：</strong></p>
-<ul>
-<li>扩容的规则并不是翻倍，是原来容量大小 + 容量大小的一半，直白来说，扩容后的大小是原来容量的 1.5 倍；</li>
-<li>ArrayList 中的数组的最大值是 Integer.MAX_VALUE，超过这个值，JVM 就不会给数组分配内存空间了。</li>
-<li>新增时，并没有对值进行严格的校验，所以 ArrayList 是允许 null 值的。</li>
-</ul>
-<p><strong>扩容的本质</strong>：</p>
-<ul>
-<li>扩容是通过这行代码来实现的：<code>Arrays.copyOf(elementData, newCapacity);</code>，这行代码描述的本质是数组之间的拷贝，扩容是会先新建一个符合我们预期容量的新数组，然后把老数组的数据拷贝过去，我们通过 System.arraycopy 方法进行拷贝，此方法是 native 的方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.arraycopy(elementData,<span class="number">0</span>,newElementData,<span class="number">0</span>,Math.min(elementData.length,newCapacity))</span><br></pre></td></tr></table></figure>
-
-<h5 id="扩容值得借鉴的地方？"><a href="#扩容值得借鉴的地方？" class="headerlink" title="扩容值得借鉴的地方？"></a>扩容值得借鉴的地方？</h5><p>答：有两点：</p>
-<ul>
-<li>是扩容的思想值得学习，通过自动扩容的方式，让使用者不用关心底层数据结构的变化，封装得很好，1.5 倍的扩容速度，可以让扩容速度在前期缓慢上升，在后期增速较快，大部分工作中要求数组的值并不是很大，所以前期增长缓慢有利于节省资源，在后期增速较快时，也可快速扩容。</li>
-<li>扩容过程中，有数组大小溢出的意识，比如要求扩容后的数组大小，不能小于 0，不能大于 Integer 的最大值。</li>
-</ul>
-<p><strong>删除</strong>：</p>
-<ul>
-<li>新增的时候是没有对 null 进行校验的，所以删除的时候也是允许删除 null 值的；</li>
-<li>找到值在数组中的索引位置，是通过 equals 来判断的，如果数组元素不是基本类型，需要我们关注 equals 的具体实现。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 如果要删除的值是 null，找到第一个值是 null 的删除</span></span><br><span class="line">  <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">      <span class="keyword">if</span> (elementData[index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">        fastRemove(index);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果要删除的值不为 null，找到第一个和要删除的值相等的删除</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">      <span class="comment">// 这里是根据  equals 来判断值相等的，相等后再根据索引位置进行删除</span></span><br><span class="line">      <span class="keyword">if</span> (o.equals(elementData[index])) &#123;</span><br><span class="line">        fastRemove(index);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>线程安全：</strong></p>
-<ul>
-<li>ArrayList 有线程安全问题的本质，是因为 ArrayList 自身的 elementData、size、modConut 在进行各种操作时，都没有加锁，而且这些变量的类型并非是可见（volatile）的，所以如果多个线程对这些变量进行操作时，可能会有值被覆盖的情况。</li>
-<li>类注释中推荐我们使用 Collections#synchronizedList 来保证线程安全，SynchronizedList 是通过在每个方法上面加上锁来实现，虽然实现了线程安全，但是性能大大降低</li>
-</ul>
-<h5 id="ArrayList-数组，我们通过增强-for-循环进行删除，可以么？"><a href="#ArrayList-数组，我们通过增强-for-循环进行删除，可以么？" class="headerlink" title="ArrayList 数组，我们通过增强 for 循环进行删除，可以么？"></a>ArrayList 数组，我们通过增强 for 循环进行删除，可以么？</h5><p>答：不可以，会报错。因为增强 for 循环过程其实调用的就是迭代器的 next () 方法，当你调用 list#remove () 方法进行删除时，modCount 的值会 +1，而这时候迭代器中的 expectedModCount 的值却没有变，导致在迭代器下次执行 next () 方法时，expectedModCount != modCount 就会报 ConcurrentModificationException 的错误</p>
-<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="*LinkedList *"></a>*<em>LinkedList *</em></h2><h4 id="1-追加"><a href="#1-追加" class="headerlink" title="1.追加"></a>1.追加</h4><ul>
-<li>追加节点时，我们可以选择追加到链表头部，还是追加到链表尾部，add 方法默认是从尾部开始追加，addFirst 方法是从头部开始追加</li>
-</ul>
-<p><strong>从尾部追加</strong></p>
-<ul>
-<li><p>保存尾部节点</p>
-</li>
-<li><p>创建新的节点，前指针指向尾部</p>
-</li>
-<li><p>尾部节点转为新节点</p>
-</li>
-<li><p>尾部节点指向新的last</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">linkLast</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 把尾节点数据暂存</span></span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; l = last;</span><br><span class="line">    <span class="comment">// 新建新的节点，初始化入参含义：</span></span><br><span class="line">    <span class="comment">// l 是新节点的前一个节点，当前值是尾节点值</span></span><br><span class="line">    <span class="comment">// e 表示当前新增节点，当前新增节点后一个节点是 null</span></span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; newNode = <span class="keyword">new</span> Node&lt;&gt;(l, e, <span class="keyword">null</span>);</span><br><span class="line">    <span class="comment">// 新建节点追加到尾部</span></span><br><span class="line">    last = newNode;</span><br><span class="line">    <span class="comment">//如果链表为空（l 是尾节点，尾节点为空，链表即空），头部和尾部是同一个节点，都是新建的节点</span></span><br><span class="line">    <span class="keyword">if</span> (l == <span class="keyword">null</span>)</span><br><span class="line">        first = newNode;![图片描述](<span class="comment">//img1.sycdn.imooc.com/5d5fc69600013e4803600240.gif)</span></span><br><span class="line">    <span class="comment">//否则把前尾节点的下一个节点，指向当前尾节点。</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        l.next = newNode;</span><br><span class="line">    <span class="comment">//大小和版本更改</span></span><br><span class="line">    size++;</span><br><span class="line">    modCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>从头部追加</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/ 从头部追加</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">linkFirst</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 头节点赋值给临时变量</span></span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; f = first;</span><br><span class="line">    <span class="comment">// 新建节点，前一个节点指向null，e 是新建节点，f 是新建节点的下一个节点，目前值是头节点的值</span></span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; newNode = <span class="keyword">new</span> Node&lt;&gt;(<span class="keyword">null</span>, e, f);</span><br><span class="line">    <span class="comment">// 新建节点成为头节点</span></span><br><span class="line">    first = newNode;</span><br><span class="line">    <span class="comment">// 头节点为空，就是链表为空，头尾节点是一个节点</span></span><br><span class="line">    <span class="keyword">if</span> (f == <span class="keyword">null</span>)</span><br><span class="line">        last = newNode;</span><br><span class="line">    <span class="comment">//上一个头节点的前一个节点指向当前节点</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        f.prev = newNode;</span><br><span class="line">    size++;</span><br><span class="line">    modCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-节点删除"><a href="#2-节点删除" class="headerlink" title="2 节点删除"></a>2 节点删除</h4><p>节点删除的方式和追加类似，我们可以选择从头部删除，也可以选择从尾部删除，删除操作会把节点的值，前后指向节点都置为 null，帮助 GC 进行回收。</p>
-<p><strong>从头部删除</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从头删除节点 f 是链表头节点</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> E <span class="title">unlinkFirst</span><span class="params">(Node&lt;E&gt; f)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 拿出头节点的值，作为方法的返回值</span></span><br><span class="line">    <span class="keyword">final</span> E element = f.item;</span><br><span class="line">    <span class="comment">// 拿出头节点的下一个节点</span></span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; next = f.next;</span><br><span class="line">    <span class="comment">//帮助 GC 回收头节点</span></span><br><span class="line">    f.item = <span class="keyword">null</span>;</span><br><span class="line">    f.next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 头节点的下一个节点成为头节点</span></span><br><span class="line">    first = next;</span><br><span class="line">    <span class="comment">//如果 next 为空，表明链表为空</span></span><br><span class="line">    <span class="keyword">if</span> (next == <span class="keyword">null</span>)</span><br><span class="line">        last = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//链表不为空，头节点的前一个节点指向 null</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        next.prev = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//修改链表大小和版本</span></span><br><span class="line">    size--;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-节点查询"><a href="#3-节点查询" class="headerlink" title="3.节点查询"></a>3.节点查询</h4><p>链表查询某一个节点是比较慢的，需要挨个循环查找才行，我们看看 LinkedList 的源码是如何寻找节点的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据链表索引位置查询节点</span></span><br><span class="line"><span class="function">Node&lt;E&gt; <span class="title">node</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果 index 处于队列的前半部分，从头开始找，size &gt;&gt; 1 是 size 除以 2 的意思。</span></span><br><span class="line">    <span class="keyword">if</span> (index &lt; (size &gt;&gt; <span class="number">1</span>)) &#123;</span><br><span class="line">        Node&lt;E&gt; x = first;</span><br><span class="line">        <span class="comment">// 直到 for 循环到 index 的前一个 node 停止</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)</span><br><span class="line">            x = x.next;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">// 如果 index 处于队列的后半部分，从尾开始找</span></span><br><span class="line">        Node&lt;E&gt; x = last;</span><br><span class="line">        <span class="comment">// 直到 for 循环到 index 的后一个 node 停止</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size - <span class="number">1</span>; i &gt; index; i--)</span><br><span class="line">            x = x.prev;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>从源码中我们可以发现，LinkedList 并没有采用从头循环到尾的做法，而是采取了简单二分法，首先看看 index 是在链表的前半部分，还是后半部分。如果是前半部分，就从头开始寻找，反之亦然。通过这种方式，使循环的次数至少降低了一半，提高了查找的性能，这种思想值得我们借鉴。</p>
-<hr>
-<h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><h4 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a>类注释</h4><ul>
-<li>提供了一种框架，自定义了先进先出的同步队列，让获取不到锁的线程能进入同步队列中排队</li>
-<li>子类可以通过给状态 CAS 赋值来决定能否拿到锁，可以定义那些状态可以获得锁，哪些状态表示获取不到锁（比如定义状态值是 0 可以获得锁，状态值是 1 就获取不到锁）</li>
-<li>子类用内部类来继承 AQS，从而实现锁的功能</li>
-<li>AQS 提供了排它模式和共享模式两种锁模式。排它模式下：只有一个线程可以获得锁，共享模式可以让多个线程获得锁，子类 ReadWriteLock 实现了两种模式</li>
-<li>AQS 同步队列和条件队列，获取不到锁的节点在入队时是先进先出，但被唤醒时，可能并不会按照先进先出的顺序执行</li>
-</ul>
-<h4 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h4><ol>
-<li><p>简单属性：</p>
-<ul>
-<li><p>state</p>
-</li>
-<li><pre><code class="java"><span class="comment">// 同步器的状态，子类会根据状态字段进行判断是否可以获得锁</span>
-<span class="comment">// 比如 CAS 成功给 state 赋值 1 算得到锁，赋值失败为得不到锁， CAS 成功给 state 赋值 0 算释放锁，赋值失败为释放失败</span>
-<span class="comment">// 可重入锁，每次获得锁 +1，每次释放锁 -1</span>
-<span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> state;
-
-<span class="comment">// 自旋超时阀值，单位纳秒</span>
-<span class="comment">// 当设置等待时间时才会用到这个属性</span>
-<span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> spinForTimeoutThreshold = <span class="number">1000L</span>;
-&lt;!--￼<span class="number">10</span>--&gt;</code></pre>
-</li>
-</ul>
-</li>
-<li></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MRZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MRZ的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/26/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-26 00:48:48" itemprop="dateCreated datePublished" datetime="2020-03-26T00:48:48+08:00">2020-03-26</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/26/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="prev" title="源码解析">
+      <i class="fa fa-chevron-left"></i> 源码解析
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -1679,6 +1435,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中重复的数字"><span class="nav-number">1.</span> <span class="nav-text">数组中重复的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不修改数组找出重复的数字"><span class="nav-number">2.</span> <span class="nav-text">不修改数组找出重复的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维数组中的查找"><span class="nav-number">3.</span> <span class="nav-text">二维数组中的查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重建二叉树"><span class="nav-number">4.</span> <span class="nav-text">重建二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的下一个节点"><span class="nav-number">5.</span> <span class="nav-text">二叉树的下一个节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用两个栈实现队列"><span class="nav-number">6.</span> <span class="nav-text">用两个栈实现队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">7.</span> <span class="nav-text">斐波那契数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵中的路径"><span class="nav-number">8.</span> <span class="nav-text">矩阵中的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#机器人的运动范围"><span class="nav-number">9.</span> <span class="nav-text">机器人的运动范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪绳子"><span class="nav-number">10.</span> <span class="nav-text">剪绳子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制中1的位数"><span class="nav-number">11.</span> <span class="nav-text">二进制中1的位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值的整数次方"><span class="nav-number">12.</span> <span class="nav-text">数值的整数次方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印从1到最大的n位数"><span class="nav-number">13.</span> <span class="nav-text">打印从1到最大的n位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除链表的节点"><span class="nav-number">14.</span> <span class="nav-text">删除链表的节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整数组的顺序使奇数位于偶数的前面"><span class="nav-number">15.</span> <span class="nav-text">调整数组的顺序使奇数位于偶数的前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表环的入口"><span class="nav-number">16.</span> <span class="nav-text">链表环的入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反转链表"><span class="nav-number">17.</span> <span class="nav-text">反转链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并两个排序的链表"><span class="nav-number">18.</span> <span class="nav-text">合并两个排序的链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的子结构"><span class="nav-number">19.</span> <span class="nav-text">树的子结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的镜像"><span class="nav-number">20.</span> <span class="nav-text">树的镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对称的二叉树"><span class="nav-number">21.</span> <span class="nav-text">对称的二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顺时针打印矩阵"><span class="nav-number">22.</span> <span class="nav-text">顺时针打印矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包含min函数的最小栈"><span class="nav-number">23.</span> <span class="nav-text">包含min函数的最小栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从上到下打印二叉树"><span class="nav-number">24.</span> <span class="nav-text">从上到下打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行打印二叉树"><span class="nav-number">25.</span> <span class="nav-text">多行打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按之字形打印二叉树"><span class="nav-number">26.</span> <span class="nav-text">按之字形打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树的后序遍历序列"><span class="nav-number">27.</span> <span class="nav-text">二叉搜索树的后序遍历序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树中和为某一值的路径"><span class="nav-number">28.</span> <span class="nav-text">二叉树中和为某一值的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将二叉树转化为双向循环链表"><span class="nav-number">29.</span> <span class="nav-text">将二叉树转化为双向循环链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂链表的复制"><span class="nav-number">30.</span> <span class="nav-text">复杂链表的复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中超过一半的数字"><span class="nav-number">31.</span> <span class="nav-text">数组中超过一半的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小的k个数"><span class="nav-number">32.</span> <span class="nav-text">最小的k个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据流中的中位数"><span class="nav-number">33.</span> <span class="nav-text">数据流中的中位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续子数组的最大和"><span class="nav-number">34.</span> <span class="nav-text">连续子数组的最大和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1–n整数中1出现的次数"><span class="nav-number">35.</span> <span class="nav-text">1–n整数中1出现的次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#礼物的最大价值"><span class="nav-number">36.</span> <span class="nav-text">礼物的最大价值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个只出现一次的字符"><span class="nav-number">37.</span> <span class="nav-text">第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中的逆序对"><span class="nav-number">38.</span> <span class="nav-text">数组中的逆序对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个链表的第一个公共节点"><span class="nav-number">39.</span> <span class="nav-text">两个链表的第一个公共节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在排序数组中查找数字"><span class="nav-number">40.</span> <span class="nav-text">在排序数组中查找数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树的第k大节点"><span class="nav-number">41.</span> <span class="nav-text">二叉搜索树的第k大节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的深度"><span class="nav-number">42.</span> <span class="nav-text">二叉树的深度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中出现的数字"><span class="nav-number">43.</span> <span class="nav-text">数组中出现的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和为s的数字"><span class="nav-number">44.</span> <span class="nav-text">和为s的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反转字符串"><span class="nav-number">45.</span> <span class="nav-text">反转字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列的最大值"><span class="nav-number">46.</span> <span class="nav-text">队列的最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圆圈中最后的数字（约瑟夫问题）"><span class="nav-number">47.</span> <span class="nav-text">圆圈中最后的数字（约瑟夫问题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的公共祖先"><span class="nav-number">48.</span> <span class="nav-text">树的公共祖先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">49.</span> <span class="nav-text"></span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
