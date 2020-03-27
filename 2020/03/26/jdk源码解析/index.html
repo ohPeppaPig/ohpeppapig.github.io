@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -17,19 +17,20 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="String不变性 public final class String     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {     &#x2F;** The value is used for character storage. *&#x2F;     private final char value[]; }">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jdk源码解析">
 <meta property="og:url" content="http://yoursite.com/2020/03/26/jdk%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.html">
-<meta property="og:site_name" content="MRZ的博客">
+<meta property="og:site_name" content="MRZ de 博客">
 <meta property="og:description" content="String不变性 public final class String     implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {     &#x2F;** The value is used for character storage. *&#x2F;     private final char value[]; }">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-26T05:11:50.498Z">
 <meta property="article:modified_time" content="2020-03-12T10:45:31.111Z">
 <meta property="article:author" content="MRZ">
+<meta property="article:tag" content="程序员，工程师，南京大学，java">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/26/jdk%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">
@@ -41,11 +42,11 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'en'
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title>jdk源码解析 | MRZ的博客</title>
+  <title>jdk源码解析 | MRZ de 博客</title>
   
 
 
@@ -76,6 +77,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="MRZ de 博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -85,7 +87,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -96,10 +98,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">MRZ的博客</h1>
+      <h1 class="site-title">MRZ de 博客</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">something need to do!</p>
+      <p class="site-subtitle" itemprop="description">write something to the future!</p>
   </div>
 
   <div class="site-nav-right">
@@ -115,12 +117,32 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">0</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
 
   </li>
   </ul>
@@ -151,17 +173,17 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/jdk%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F%20%E5%8A%A8%E7%89%A9&step_word=&ie=utf-8&in=&cl=2&lm=&st=-1&hd=undefined&latest=undefined&copyright=undefined&cs=1863352222,2298064461&os=3775264264,3781402113&simid=3481033620,351489748&pn=3&rn=1&di=82830&ln=3068&fr=&fmq=1390280702008_R&fm=&ic=undefined&s=&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fwww.17qq.com%2Fimg_qqtouxiang%2F74402924.jpeg&rpstart=0&rpnum=0&adpicid=0&force=undefined">
       <meta itemprop="name" content="MRZ">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="记录自己生活与学习的点点滴滴">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MRZ的博客">
+      <meta itemprop="name" content="MRZ de 博客">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -173,16 +195,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2020-03-26 13:11:50" itemprop="dateCreated datePublished" datetime="2020-03-26T13:11:50+08:00">2020-03-26</time>
+              <time title="创建时间：2020-03-26 13:11:50" itemprop="dateCreated datePublished" datetime="2020-03-26T13:11:50+08:00">2020-03-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-12 18:45:31" itemprop="dateModified" datetime="2020-03-12T18:45:31+08:00">2020-03-12</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-12 18:45:31" itemprop="dateModified" datetime="2020-03-12T18:45:31+08:00">2020-03-12</time>
               </span>
 
           
@@ -209,7 +231,7 @@
 <li><p>getBytes 和 new String 两个方法都会使用到编码，我们把这两处的编码替换成 UTF-8 后，打印出的结果就正常了</p>
 <ul>
 <li><pre><code>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 相等判断</span><br><span class="line"></span><br><span class="line">- equals 和 equalsIgnoreCase。后者判断相等时，会忽略大小写，近期看见一些面试题在问：如果让你写判断两个 String 相等的逻辑，应该如何写</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;java</span><br><span class="line">  public boolean equals(Object anObject) &#123;</span><br><span class="line">      &#x2F;&#x2F; 判断内存地址是否相同</span><br><span class="line">      if (this &#x3D;&#x3D; anObject) &#123;</span><br><span class="line">          return true;</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F; 待比较的对象是否是 String，如果不是 String，直接返回不相等</span><br><span class="line">      if (anObject instanceof String) &#123;</span><br><span class="line">          String anotherString &#x3D; (String)anObject;</span><br><span class="line">          int n &#x3D; value.length;</span><br><span class="line">          &#x2F;&#x2F; 两个字符串的长度是否相等，不等则直接返回不相等</span><br><span class="line">          if (n &#x3D;&#x3D; anotherString.value.length) &#123;</span><br><span class="line">              char v1[] &#x3D; value;</span><br><span class="line">              char v2[] &#x3D; anotherString.value;</span><br><span class="line">              int i &#x3D; 0;</span><br><span class="line">              &#x2F;&#x2F; 依次比较每个字符是否相等，若有一个不等，直接返回不相等</span><br><span class="line">              while (n-- !&#x3D; 0) &#123;</span><br><span class="line">                  if (v1[i] !&#x3D; v2[i])</span><br><span class="line">                      return false;</span><br><span class="line">                  i++;</span><br><span class="line">              &#125;</span><br><span class="line">              return true;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return false;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#### 相等判断</span></span><br><span class="line"></span><br><span class="line">- <span class="keyword">equals</span> 和 equalsIgnoreCase。后者判断相等时，会忽略大小写，近期看见一些面试题在问：如果让你写判断两个 String 相等的逻辑，应该如何写</span><br><span class="line"></span><br><span class="line">- ```java</span><br><span class="line">  <span class="function"><span class="keyword">public</span> boolean <span class="title">equals</span>(<span class="params">Object anObject</span>)</span> &#123;</span><br><span class="line">      <span class="comment">// 判断内存地址是否相同</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 待比较的对象是否是 String，如果不是 String，直接返回不相等</span></span><br><span class="line">      <span class="keyword">if</span> (anObject instanceof String) &#123;</span><br><span class="line">          String anotherString = (String)anObject;</span><br><span class="line">          <span class="keyword">int</span> n = <span class="keyword">value</span>.length;</span><br><span class="line">          <span class="comment">// 两个字符串的长度是否相等，不等则直接返回不相等</span></span><br><span class="line">          <span class="keyword">if</span> (n == anotherString.<span class="keyword">value</span>.length) &#123;</span><br><span class="line">              <span class="keyword">char</span> v1[] = <span class="keyword">value</span>;</span><br><span class="line">              <span class="keyword">char</span> v2[] = anotherString.<span class="keyword">value</span>;</span><br><span class="line">              <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">              <span class="comment">// 依次比较每个字符是否相等，若有一个不等，直接返回不相等</span></span><br><span class="line">              <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                  <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                  i++;</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></code></pre></li>
 <li><p>判断内存地址</p>
 </li>
 <li><p>转为比较string内部char数组：相同长度，字符匹配</p>
@@ -323,6 +345,10 @@
 <li></li>
 </ol>
 
+	  
+        
+
+      
     </div>
 
     
@@ -394,10 +420,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -409,8 +435,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MRZ"
+      src="http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F%20%E5%8A%A8%E7%89%A9&step_word=&ie=utf-8&in=&cl=2&lm=&st=-1&hd=undefined&latest=undefined&copyright=undefined&cs=1863352222,2298064461&os=3775264264,3781402113&simid=3481033620,351489748&pn=3&rn=1&di=82830&ln=3068&fr=&fmq=1390280702008_R&fm=&ic=undefined&s=&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fwww.17qq.com%2Fimg_qqtouxiang%2F74402924.jpeg&rpstart=0&rpnum=0&adpicid=0&force=undefined">
   <p class="site-author-name" itemprop="name">MRZ</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">记录自己生活与学习的点点滴滴</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -418,7 +446,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">11</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
@@ -451,7 +479,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">MRZ</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -505,5 +533,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
