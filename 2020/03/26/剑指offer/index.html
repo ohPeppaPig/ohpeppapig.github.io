@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="剑指offer 数组中重复的数字1描述：在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组&amp;#123;2,3,1,0,2,5,3&amp;#125;，那么对应的输出是第一个重复的数字2   它考察的是程序员的沟通能力，先问面试官要时间&#x2F;空间需求！！！只是时间优">
+  <meta name="description" content="-回溯法                 if(judge(matrix,i,j,rows,cols,flag,str,0)){                     return true;                 }            }        }        return false;    } &#x2F;&#x2F;judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer">
 <meta property="og:url" content="http://yoursite.com/2020/03/26/%E5%89%91%E6%8C%87offer/index.html">
 <meta property="og:site_name" content="MRZ de 博客">
-<meta property="og:description" content="剑指offer 数组中重复的数字1描述：在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组&amp;#123;2,3,1,0,2,5,3&amp;#125;，那么对应的输出是第一个重复的数字2   它考察的是程序员的沟通能力，先问面试官要时间&#x2F;空间需求！！！只是时间优">
+<meta property="og:description" content="-回溯法                 if(judge(matrix,i,j,rows,cols,flag,str,0)){                     return true;                 }            }        }        return false;    } &#x2F;&#x2F;judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:%5CUsers%5C%E5%8D%97%E5%A4%A7%E5%AE%8B%E4%BB%B2%E5%9F%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200227175142167.png">
 <meta property="og:image" content="c:/Users/南大宋仲基/AppData/Roaming/Typora/typora-user-images/image-20200303214920868.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-ec6f1e5c8bd7902a4d6b2ffdf024e54f_1440w.jpg">
 <meta property="article:published_time" content="2020-03-26T05:28:02.065Z">
-<meta property="article:modified_time" content="2020-03-26T03:59:42.576Z">
+<meta property="article:modified_time" content="2020-03-27T13:16:37.670Z">
 <meta property="article:author" content="MRZ">
 <meta property="article:tag" content="程序员，工程师，南京大学，java">
 <meta name="twitter:card" content="summary">
@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -200,10 +200,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-26 13:28:02 / 修改时间：11:59:42" itemprop="dateCreated datePublished" datetime="2020-03-26T13:28:02+08:00">2020-03-26</time>
+              <time title="创建时间：2020-03-26 13:28:02" itemprop="dateCreated datePublished" datetime="2020-03-26T13:28:02+08:00">2020-03-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 21:16:37" itemprop="dateModified" datetime="2020-03-27T21:16:37+08:00">2020-03-27</time>
+              </span>
 
           
 
@@ -216,281 +222,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>剑指offer</p>
-<h4 id="数组中重复的数字"><a href="#数组中重复的数字" class="headerlink" title="数组中重复的数字"></a>数组中重复的数字</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">描述：在一个长度为n的数组里的所有数字都在<span class="number">0</span>到n<span class="number">-1</span>的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为<span class="number">7</span>的数组&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>&#125;，那么对应的输出是第一个重复的数字<span class="number">2</span></span><br></pre></td></tr></table></figure>
+        <p>-回溯法<br>                 if(judge(matrix,i,j,rows,cols,flag,str,0)){<br>                     return true;<br>                 }<br>            }<br>        }<br>        return false;<br>    }</p>
+<pre><code>//judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数，待判断的字符串，字符串索引初始为0即先判断字符串的第一位)
+private boolean judge(char[] matrix,int i,int j,int rows,int cols,boolean[] flag,char[] str,int k){
+    //先根据i和j计算匹配的第一个元素转为一维数组的位置
+    int index = i*cols+j;
+    //递归终止条件
+    if(i&lt;0 || j&lt;0 || i&gt;=rows || j&gt;=cols || matrix[index] != str[k] || flag[index] == true)
+        return false;
+    //若k已经到达str末尾了，说明之前的都已经匹配成功了，直接返回true即可
+    if(k == str.length-1)
+        return true;
+    //要走的第一个位置置为true，表示已经走过了
+    flag[index] = true;
 
-<ul>
-<li><p>它考察的是程序员的沟通能力，先问面试官要时间/空间需求！！！<br>只是时间优先就用字典，<br>还有空间要求，就用指针+原地排序数组，<br>如果面试官要求空间O(1)并且不能修改原数组，还得写成二分法！！！</p>
-</li>
-<li><p>方法一：可以数组排序，从头遍历数组找到与下标不同的元素输出 ： O（nlogn）</p>
-</li>
-<li><p>方法二：可以使用哈希表的方法：没有元素则加入，已经存在则输出</p>
-<ul>
-<li><pre><code class="python">help = []
-<span class="keyword">for</span> i <span class="keyword">in</span> arr:
-    <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> help:
-        help.append(i)
-    <span class="keyword">else</span>:
-        print(i)
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 时间复杂度为O（n）,但是空间复杂度为O（n）：维护一个hash表</span><br><span class="line"></span><br><span class="line">- 方法三：</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    def duplicate(<span class="built_in">number</span>, duplication):</span><br><span class="line">    	<span class="keyword">if</span> <span class="built_in">number</span> is None <span class="literal">and</span> len(<span class="built_in">number</span>) &lt;= <span class="number">0</span>: <span class="meta">#边界条件不为空</span></span><br><span class="line">    		<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    	<span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">number</span>:    <span class="meta"># 边界条件不为无效输入用例</span></span><br><span class="line">    		<span class="keyword">if</span> n &lt; <span class="number">0</span> <span class="literal">or</span> n &gt; len(<span class="built_in">number</span>) - <span class="number">1</span>:</span><br><span class="line">    			<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    	<span class="keyword">for</span> i <span class="keyword">in</span> range(len(<span class="built_in">number</span>)):   <span class="meta">#依次进行扫描</span></span><br><span class="line">    		<span class="keyword">while</span> <span class="built_in">number</span>[i] != i:   <span class="meta">#如果数字与下标不等</span></span><br><span class="line">    			<span class="keyword">if</span> <span class="built_in">number</span>[i] == <span class="built_in">number</span>[<span class="built_in">number</span>[i]]: <span class="meta">#判断该数字正确下标是否是该数</span></span><br><span class="line">    				<span class="meta"># print(arr[i])</span></span><br><span class="line">    				duplication = <span class="built_in">number</span>[i]   <span class="meta">#是的话  找到重复数字</span></span><br><span class="line">    				<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    			<span class="keyword">else</span>:                <span class="meta">#不是的话，该数字交换到正确的位置</span></span><br><span class="line">    				temp = <span class="built_in">number</span>[i]</span><br><span class="line">    				<span class="built_in">number</span>[i] = <span class="built_in">number</span>[temp]</span><br><span class="line">    				<span class="built_in">number</span>[temp] = temp</span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure></code></pre>
-</li>
-<li><p>尽管有两个循环，但是每个数字最多交换两次就能找到属于他们的位置，总的时间复杂度为O（n）</p>
-</li>
-<li><p>空间复杂度为O(1)</p>
-</li>
-</ul>
-</li>
-<li><p>该题的边界条件：</p>
-<ul>
-<li>数组为空</li>
-<li>数组中的数字为0-n-1以外的数字</li>
-<li>数组中不包含重复的数字</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="不修改数组找出重复的数字"><a href="#不修改数组找出重复的数字" class="headerlink" title="不修改数组找出重复的数字"></a>不修改数组找出重复的数字</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">长度为n+<span class="number">1</span>的数组中，所有的数字在<span class="number">1</span>-n的范围内，至少一个数字是重复的，找出任意重复数字，并不修改数组</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>方法一：<ul>
-<li>再来一个数组，依次把元素放入新的数组（下标为该数字）中，很容易找到重复数字</li>
-<li>时间空间复杂度都是O（n）</li>
-</ul>
-</li>
-<li>方法二：二分法<ul>
-<li>把数字1-n从中间的数字m分成两份，如果1-m的数字个数大于m则在1-m中，反之在m+1-n中</li>
-<li>code</li>
-<li>缺点：不能保证找出全部的重复数字</li>
-</ul>
-</li>
-<li>边界：<ul>
-<li>空指针</li>
-<li>没有重复的数字</li>
-<li>无效测试用例</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>思路：从左下角或者右上角开始查找，如果小于则向下找，大于向左找，每次剔除一行一列</p>
-<ul>
-<li>1 2 8 9</li>
-<li>2 4 9 12</li>
-<li>4 7 10 13</li>
-</ul>
-</li>
-<li><pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">Find</span><span class="params">(self, target, array)</span>:</span>
-    <span class="comment"># write code here</span>
-    i = <span class="number">0</span>
-    j = len(array[<span class="number">0</span>])<span class="number">-1</span>
-    <span class="comment"># 边界问题：</span>
-    max(i)=len(arr)<span class="number">-1</span> ,min(j)=<span class="number">0</span>
-    <span class="keyword">if</span> target&gt;max(i) <span class="keyword">or</span> target&lt;min(i):
-        <span class="keyword">return</span> <span class="literal">False</span>
-    <span class="keyword">while</span> i&lt;len(array) <span class="keyword">and</span> j&gt;=<span class="number">0</span>: 
-        value = array[i][j]
-        <span class="keyword">if</span> value == target:
-            <span class="keyword">return</span> <span class="literal">True</span>
-        <span class="keyword">elif</span> value&gt;target:
-            j -=<span class="number">1</span>
-        <span class="keyword">else</span>:
-            i+=<span class="number">1</span>
-    <span class="keyword">return</span> <span class="literal">False</span>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">- </span>边界值：</span><br><span class="line"></span><br><span class="line"><span class="bullet">  - </span>二维数组中要有查找的数字，数字范围在最大值和最小值之间</span><br><span class="line"><span class="bullet">  - </span>数字范围在最大值和最小值之间，但数组中没有</span><br><span class="line"><span class="bullet">  - </span>空指针</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="emphasis">***</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 替换空格</span></span><br></pre></td></tr></table></figure>
-请实现一个函数，将一个字符串中的每个空格替换成“%<span class="number">20</span>”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%<span class="number">20</span>Are%<span class="number">20</span>Happy。
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 方法一：数组操作，从头往后移动，每个元素移动次数较多 O（n）</span><br><span class="line"></span><br><span class="line">- 方法二：空间换时间</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">String</span> replaceSpace(StringBuffer <span class="built_in">str</span>) &#123;</span><br><span class="line">        	 StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>;i&lt;<span class="built_in">str</span>.length();i++)&#123;</span><br><span class="line">                <span class="built_in">char</span> c = <span class="built_in">str</span>.charAt(i);</span><br><span class="line">                <span class="keyword">if</span>(c == <span class="string">' '</span>)&#123;</span><br><span class="line">                    sb.<span class="built_in">append</span>(<span class="string">"%20"</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    sb.<span class="built_in">append</span>(c);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sb.toString();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-<li><p>方法三：双指针分别指向，从尾向头遍历，首先确定空格数量，开辟字符串空间</p>
-<ul>
-<li><pre><code class="java"><span class="function"><span class="keyword">public</span> String <span class="title">replaceSpace</span><span class="params">(StringBuffer str)</span> </span>{
-        <span class="comment">//计算空格的数量</span>
-        <span class="keyword">int</span> blankNum=<span class="number">0</span>;
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length();i++){
-            <span class="keyword">if</span>(str.charAt(i)==<span class="string">' '</span>){
-                blankNum++;
-            }
-        }
-        <span class="comment">//记录初始的字符串、插入后的字符串的长度</span>
-        <span class="keyword">int</span> originalStringLength=str.length();
-        <span class="keyword">int</span> newStringLength=originalStringLength+<span class="number">2</span>*blankNum;
-        <span class="comment">//重新设置str的长度</span>
-        str.setLength(newStringLength);
-        <span class="comment">//定义两个指针，分别指向新旧字符串的末尾</span>
-        <span class="keyword">int</span> indexOfOriginalString=originalStringLength-<span class="number">1</span>;
-        <span class="keyword">int</span> indexOfNewString=newStringLength-<span class="number">1</span>;
-        <span class="comment">//结束条件及确保是否越界</span>
-        <span class="keyword">while</span>(indexOfOriginalString&gt;=<span class="number">0</span>&amp;&amp;indexOfNewString&gt;indexOfOriginalString){
-            <span class="keyword">if</span>(str.charAt(indexOfOriginalString)==<span class="string">' '</span>){
-                <span class="comment">//插入语%20</span>
-                str.setCharAt(indexOfNewString--,<span class="string">'0'</span>);
-                str.setCharAt(indexOfNewString--,<span class="string">'2'</span>);
-                str.setCharAt(indexOfNewString--,<span class="string">'%'</span>);
-        }<span class="keyword">else</span>{
-              str.setCharAt(indexOfNewString--,str.charAt(indexOfOriginalString));
-            }
-            indexOfOriginalString--;
-        }
-        <span class="keyword">return</span> str.toString();
+    //回溯，递归寻找，每次找到了就给k加一，找不到，还原
+    if(judge(matrix,i-1,j,rows,cols,flag,str,k+1) ||
+       judge(matrix,i+1,j,rows,cols,flag,str,k+1) ||
+       judge(matrix,i,j-1,rows,cols,flag,str,k+1) ||
+       judge(matrix,i,j+1,rows,cols,flag,str,k+1)  )
+    {
+        return true;
     }
-&lt;!--￼<span class="number">6</span>--&gt;
-输入一个链表，按链表从尾到头的顺序返回一个ArrayList
-&lt;!--￼<span class="number">7</span>--&gt;</code></pre>
-</li>
-</ul>
-</li>
-<li><p>当链表很长时，容易栈溢出，栈基于循环实现更加鲁棒</p>
-</li>
-<li><p>使用反转链表</p>
-</li>
-</ul>
-<hr>
-<h4 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>&#125;和中序遍历序列&#123;<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>&#125;，则重建二叉树并返回</span><br></pre></td></tr></table></figure>
+    //走到这，说明这一条路不通，还原，再试其他的路径
+    flag[index] = false;
+    return false;
+}</code></pre><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">***</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 机器人的运动范围</span><br></pre></td></tr></table></figure>
+<p>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子？</p>
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 同样是回溯法</span><br><span class="line"></span><br><span class="line">  - 访问位</span><br><span class="line">  - 边界条件：越界  ， 不满足题意  ， 访问过</span><br><span class="line">  - 回溯前后左右格子数目</span><br><span class="line"></span><br><span class="line">  ```java</span><br><span class="line">   public <span class="keyword">int</span> movingCount(<span class="keyword">int</span> threshold, <span class="keyword">int</span> <span class="built_in">rows</span>, <span class="keyword">int</span> <span class="built_in">cols</span>) &#123;</span><br><span class="line">          <span class="keyword">int</span> flag[][] = new <span class="keyword">int</span>[<span class="built_in">rows</span>][<span class="built_in">cols</span>]; <span class="comment">//记录是否已经走过</span></span><br><span class="line">          <span class="keyword">return</span> helper(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">rows</span>, <span class="built_in">cols</span>, flag, threshold);</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      private <span class="keyword">int</span> helper(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> <span class="built_in">rows</span>, <span class="keyword">int</span> <span class="built_in">cols</span>, <span class="keyword">int</span>[][] flag, <span class="keyword">int</span> threshold) &#123;</span><br><span class="line">          <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt;= <span class="built_in">rows</span> || j &lt; <span class="number">0</span> || j &gt;= <span class="built_in">cols</span> || numSum(i) + numSum(j)  &gt; threshold || flag[i][j] == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">          flag[i][j] = <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">return</span> helper(i - <span class="number">1</span>, j, <span class="built_in">rows</span>, <span class="built_in">cols</span>, flag, threshold)</span><br><span class="line">                  + helper(i + <span class="number">1</span>, j, <span class="built_in">rows</span>, <span class="built_in">cols</span>, flag, threshold)</span><br><span class="line">                  + helper(i, j - <span class="number">1</span>, <span class="built_in">rows</span>, <span class="built_in">cols</span>, flag, threshold)</span><br><span class="line">                  + helper(i, j + <span class="number">1</span>, <span class="built_in">rows</span>, <span class="built_in">cols</span>, flag, threshold)</span><br><span class="line">                  + <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  	<span class="comment">// 数字位数相加</span></span><br><span class="line">      private <span class="keyword">int</span> numSum(<span class="keyword">int</span> i) &#123;</span><br><span class="line">          <span class="keyword">int</span> <span class="built_in">sum</span> = <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">while</span>(i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">              <span class="built_in">sum</span> += i%<span class="number">10</span>;</span><br><span class="line">              i = i/<span class="number">10</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">sum</span>;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>老题目了</p>
-<ul>
-<li>找到先序的第一个位置为根节点</li>
-<li>用根节点去中序划分左右子树</li>
-<li>左右递归</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = preorder.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">int</span> rootVal = preorder[<span class="number">0</span>], rootIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (inorder[i] == rootVal) &#123;</span><br><span class="line">                rootIndex = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        rootIndex =Arrays.binarySearch(inorder,rootVal);</span></span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(rootVal);</span><br><span class="line">        root.left = buildTree(Arrays.copyOfRange(preorder, <span class="number">1</span>, <span class="number">1</span> + rootIndex), Arrays.copyOfRange(inorder, <span class="number">0</span>, rootIndex));</span><br><span class="line">        root.right = buildTree(Arrays.copyOfRange(preorder, <span class="number">1</span> + rootIndex, n), Arrays.copyOfRange(inorder, rootIndex + <span class="number">1</span>, n));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reConstructBinaryTree</span><span class="params">(self, pre, tin)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pre <span class="keyword">or</span> <span class="keyword">not</span> tin:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> len(pre) != len(tin):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="comment"># 取出pre 的第一个值  就是根节点</span></span><br><span class="line">        root = pre[<span class="number">0</span>]</span><br><span class="line">        rootNode = TreeNode(root)</span><br><span class="line">        <span class="comment"># 找到在 tin  中序遍历中的根节点 所在的索引位置</span></span><br><span class="line">        pos = tin.index(root)</span><br><span class="line">        <span class="comment"># 中序遍历的 列表的左右节点 分开 切片 成两个列表</span></span><br><span class="line">        tinLeft = tin[<span class="number">0</span>:pos]</span><br><span class="line">        tinRight = tin[pos + <span class="number">1</span>:]</span><br><span class="line">        <span class="comment"># 前序遍历的 列表的左右节点 分开 切片 成两个列表</span></span><br><span class="line">        preLeft = pre[<span class="number">1</span>:pos + <span class="number">1</span>]</span><br><span class="line">        preRight = pre[pos + <span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line">        leftNode = self.reConstructBinaryTree(preLeft, tinLeft)</span><br><span class="line">        rightNode = self.reConstructBinaryTree(preRight, tinRight)</span><br><span class="line"></span><br><span class="line">        rootNode.left = leftNode</span><br><span class="line">        rootNode.right = rightNode</span><br><span class="line">        <span class="keyword">return</span> rootNode</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="二叉树的下一个节点"><a href="#二叉树的下一个节点" class="headerlink" title="二叉树的下一个节点"></a>二叉树的下一个节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>一定要画图分析</p>
-<ul>
-<li>节点有右子树：下一个节点为就是右子树最左节点</li>
-<li>节点没有右子树：找父节点，该节点为父节点的左孩子，则为所求</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetNext</span><span class="params">(self, pNode)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> pNode.right:<span class="comment">#如果有右子树</span></span><br><span class="line">            p = pNode.right</span><br><span class="line">            <span class="keyword">while</span> p.left:</span><br><span class="line">                p = p.left</span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line">        <span class="keyword">while</span> pNode.next:<span class="comment">#无右子树则找第一个当前节点是父节点左孩子的节点</span></span><br><span class="line">            <span class="keyword">if</span> pNode.next.left == pNode:</span><br><span class="line">                <span class="keyword">return</span> pNode.next</span><br><span class="line">            pNode = pNode.next</span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<hr>
-<h4 id="用两个栈实现队列"><a href="#用两个栈实现队列" class="headerlink" title="用两个栈实现队列"></a>用两个栈实现队列</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用两个栈来实现一个队列，完成队列的<span class="keyword">Push</span>和<span class="keyword">Pop</span>操作。 队列中的元素为<span class="keyword">int</span>类型</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>stack1 为进栈  stack2为出栈</li>
-<li>当stack2不为空时，进行出栈，为空时：stack1全部进stack2</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack2.empty())&#123;</span><br><span class="line">            <span class="keyword">while</span> (!stack1.empty())&#123;</span><br><span class="line">                stack2.push(stack1.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>两个队列实现一个栈<ul>
-<li>进队正常进队</li>
-<li>出队时，队列除了最后一个元素全部进入help队列，删除队列最后一个元素出队</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//思路：两个栈 queue栈进元素，当要出队时，queue元素全部进入help队列，出队，交换队列引用</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoQueuesStack</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> Queue&lt;Integer&gt; queue;</span><br><span class="line">		<span class="keyword">private</span> Queue&lt;Integer&gt; help;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">TwoQueuesStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			queue = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">			help = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> pushInt)</span> </span>&#123;</span><br><span class="line">			queue.add(pushInt);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (queue.isEmpty()) &#123;</span><br><span class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Stack is empty!"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//queue队列全部转移</span></span><br><span class="line">			<span class="keyword">while</span> (queue.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">				help.add(queue.poll());</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">int</span> res = queue.poll();</span><br><span class="line">			swap();</span><br><span class="line">			<span class="keyword">return</span> res;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 十分重要***</span></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			Queue&lt;Integer&gt; tmp = help;</span><br><span class="line">			help = queue;</span><br><span class="line">			queue = tmp;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从<span class="number">0</span>开始，第<span class="number">0</span>项为<span class="number">0</span>）</span><br></pre></td></tr></table></figure>
-
-<p>F(N) = F(N-1)+F(N+2)    N&gt;1     0  N = 0  1N = 1</p>
-<ul>
-<li><p>递归方法</p>
-<ul>
-<li><pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(n)</span>:</span>
-    <span class="keyword">if</span> n&lt;=<span class="number">0</span>:
-        <span class="keyword">return</span> <span class="number">0</span>
-    <span class="keyword">if</span> n == <span class="number">1</span> :
-        <span class="keyword">return</span> <span class="number">1</span>
-    <span class="keyword">return</span> solution(n<span class="number">-1</span>)+solution(n<span class="number">-2</span>)
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 递归的过程中有很多重复计算，效率较低</span><br><span class="line"></span><br><span class="line">- 面试官期待的实用算法</span><br><span class="line"></span><br><span class="line">  - 避免重复计算，把得到的中间项保存起来</span><br><span class="line"></span><br><span class="line">  - ```python</span><br><span class="line">    def solution(n):</span><br><span class="line">    	<span class="keyword">if</span> n&lt;=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">1</span> :</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        a = <span class="number">0</span>,b = <span class="number">1</span></span><br><span class="line">        result = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n+<span class="number">1</span>):</span><br><span class="line">            result = a + b</span><br><span class="line">            a = b</span><br><span class="line">            b = result</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-<li><p>再次优化</p>
-</li>
-<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
-        <span class="keyword">if</span>(n == <span class="number">0</span>){
-            <span class="keyword">return</span> <span class="number">0</span>;
-        }<span class="keyword">else</span> <span class="keyword">if</span>(n == <span class="number">1</span>){
-            <span class="keyword">return</span> <span class="number">1</span>;
-        }
-        <span class="keyword">int</span> sum = <span class="number">1</span>;
-        <span class="keyword">int</span> one = <span class="number">0</span>;
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++){
-            sum = sum + one;
-            one = sum - one;
-        }
-        <span class="keyword">return</span> sum;
-    }
-}
-&lt;!--￼<span class="number">18</span>--&gt;
-一只青蛙一次可以跳上<span class="number">1</span>级台阶，也可以跳上<span class="number">2</span>级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果
-&lt;!--￼<span class="number">19</span>--&gt;
-一只青蛙一次可以跳上<span class="number">1</span>级台阶，也可以跳上<span class="number">2</span>级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
-&lt;!--￼<span class="number">20</span>--&gt;</code></pre>
-</li>
-<li><p>矩形覆盖</p>
-</li>
-<li><pre><code>可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">***</span><br><span class="line"></span><br><span class="line">#### 旋转数组中的最小数字</span><br></pre></td></tr></table></figure>
-把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。
-输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。
-例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 这是类似的一个排序数组分成两半：一般情况下，第一个元素大于或者等于最后一个元素， 使用二分查找</span><br><span class="line">  </span><br><span class="line">  - ```java</span><br><span class="line">    public int minArray(int[] numbers) &#123;</span><br><span class="line">            int <span class="built_in">i</span> = <span class="number">0</span>;</span><br><span class="line">            int <span class="built_in">j</span> = numbers.<span class="built_in">length</span><span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span> (<span class="built_in">i</span>&lt;<span class="built_in">j</span>)&#123;</span><br><span class="line">                int mid = (<span class="built_in">i</span>+<span class="built_in">j</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(numbers[mid] &gt;numbers[<span class="built_in">j</span>])&#123;</span><br><span class="line">                    <span class="built_in">i</span> = mid+<span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[mid]&lt;numbers[<span class="built_in">j</span>])&#123;</span><br><span class="line">                    <span class="built_in">j</span> = mid;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">j</span>--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> numbers[<span class="built_in">i</span>];</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="矩阵中的路径"><a href="#矩阵中的路径" class="headerlink" title="矩阵中的路径"></a>矩阵中的路径</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。 例如 <span class="selector-tag">a</span> <span class="selector-tag">b</span> c e s f c s <span class="selector-tag">a</span> d e e 矩阵中包含一条字符串<span class="string">"bcced"</span>的路径，但是矩阵中不包含<span class="string">"abcb"</span>路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>回溯 </p>
-<p>  基本思想： </p>
-<p>  0.根据给定数组，初始化一个标志位数组，初始化为false，表示未走过，true表示已经走过，不能走第二次 </p>
-<p>  1.根据行数和列数，遍历数组，先找到一个与str字符串的第一个元素相匹配的矩阵元素，进入judge </p>
-<p>  2.根据i和j先确定一维数组的位置，因为给定的matrix是一个一维数组 </p>
-<p>  3.确定递归终止条件：越界，当前找到的矩阵值不等于数组对应位置的值，已经走过的，这三类情况，都直接false，说明这条路不通 </p>
-<p>  4.若k，就是待判定的字符串str的索引已经判断到了最后一位，此时说明是匹配成功的 </p>
-<p>  5.下面就是本题的精髓，递归不断地寻找周围四个格子是否符合条件，只要有一个格子符合条件，就继续再找这个符合条件的格子的四周是否存在符合条件的格子，直到k到达末尾或者不满足递归条件就停止。 </p>
-<p>  6.走到这一步，说明本次是不成功的，我们要还原一下标志位数组index处的标志位，进入下一轮的判断。</p>
-</li>
-<li><p>自己的话：</p>
-<ul>
-<li>先找到对应元素，置为true，查找周围元素，没找到，该元素不是解集，返回false</li>
-<li>边界条件：<ul>
-<li>越界</li>
-<li>不是对应元素</li>
-<li>已经走过了</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPath</span><span class="params">(<span class="keyword">char</span>[] matrix, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">char</span>[] str)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//标志位，初始化为false</span></span><br><span class="line">        <span class="keyword">boolean</span>[] flag = <span class="keyword">new</span> <span class="keyword">boolean</span>[matrix.length];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;rows;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;cols;j++)&#123;</span><br><span class="line">                 <span class="comment">//循环遍历二维数组，找到起点等于str第一个元素的值，再递归判断四周是否有符合条件的----回溯法</span></span><br><span class="line">                 <span class="keyword">if</span>(judge(matrix,i,j,rows,cols,flag,str,<span class="number">0</span>))&#123;</span><br><span class="line">                     <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                 &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//judge(初始矩阵，索引行坐标i，索引纵坐标j，矩阵行数，矩阵列数，待判断的字符串，字符串索引初始为0即先判断字符串的第一位)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">judge</span><span class="params">(<span class="keyword">char</span>[] matrix,<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> rows,<span class="keyword">int</span> cols,<span class="keyword">boolean</span>[] flag,<span class="keyword">char</span>[] str,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先根据i和j计算匹配的第一个元素转为一维数组的位置</span></span><br><span class="line">        <span class="keyword">int</span> index = i*cols+j;</span><br><span class="line">        <span class="comment">//递归终止条件</span></span><br><span class="line">        <span class="keyword">if</span>(i&lt;<span class="number">0</span> || j&lt;<span class="number">0</span> || i&gt;=rows || j&gt;=cols || matrix[index] != str[k] || flag[index] == <span class="keyword">true</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//若k已经到达str末尾了，说明之前的都已经匹配成功了，直接返回true即可</span></span><br><span class="line">        <span class="keyword">if</span>(k == str.length-<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">//要走的第一个位置置为true，表示已经走过了</span></span><br><span class="line">        flag[index] = <span class="keyword">true</span>;</span><br><span class="line">         </span><br><span class="line">        <span class="comment">//回溯，递归寻找，每次找到了就给k加一，找不到，还原</span></span><br><span class="line">        <span class="keyword">if</span>(judge(matrix,i-<span class="number">1</span>,j,rows,cols,flag,str,k+<span class="number">1</span>) ||</span><br><span class="line">           judge(matrix,i+<span class="number">1</span>,j,rows,cols,flag,str,k+<span class="number">1</span>) ||</span><br><span class="line">           judge(matrix,i,j-<span class="number">1</span>,rows,cols,flag,str,k+<span class="number">1</span>) ||</span><br><span class="line">           judge(matrix,i,j+<span class="number">1</span>,rows,cols,flag,str,k+<span class="number">1</span>)  )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//走到这，说明这一条路不通，还原，再试其他的路径</span></span><br><span class="line">        flag[index] = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="机器人的运动范围"><a href="#机器人的运动范围" class="headerlink" title="机器人的运动范围"></a>机器人的运动范围</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">地上有一个m行和n列的方格。一个机器人从坐标<span class="number">0</span>,<span class="number">0</span>的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为<span class="number">18</span>时，机器人能够进入方格（<span class="number">35</span>,<span class="number">37</span>），因为<span class="number">3</span>+<span class="number">5</span>+<span class="number">3</span>+<span class="number">7</span> = <span class="number">18</span>。但是，它不能进入方格（<span class="number">35</span>,<span class="number">38</span>），因为<span class="number">3</span>+<span class="number">5</span>+<span class="number">3</span>+<span class="number">8</span> = <span class="number">19</span>。请问该机器人能够达到多少个格子？</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>同样是回溯法</p>
-<ul>
-<li>访问位</li>
-<li>边界条件：越界  ， 不满足题意  ， 访问过</li>
-<li>回溯前后左右格子数目</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">movingCount</span><span class="params">(<span class="keyword">int</span> threshold, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> flag[][] = <span class="keyword">new</span> <span class="keyword">int</span>[rows][cols]; <span class="comment">//记录是否已经走过</span></span><br><span class="line">       <span class="keyword">return</span> helper(<span class="number">0</span>, <span class="number">0</span>, rows, cols, flag, threshold);</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">int</span>[][] flag, <span class="keyword">int</span> threshold)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt;= rows || j &lt; <span class="number">0</span> || j &gt;= cols || numSum(i) + numSum(j)  &gt; threshold || flag[i][j] == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       flag[i][j] = <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">return</span> helper(i - <span class="number">1</span>, j, rows, cols, flag, threshold)</span><br><span class="line">               + helper(i + <span class="number">1</span>, j, rows, cols, flag, threshold)</span><br><span class="line">               + helper(i, j - <span class="number">1</span>, rows, cols, flag, threshold)</span><br><span class="line">               + helper(i, j + <span class="number">1</span>, rows, cols, flag, threshold)</span><br><span class="line">               + <span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">// 数字位数相加</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">numSum</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">           sum += i%<span class="number">10</span>;</span><br><span class="line">           i = i/<span class="number">10</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> sum;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
 <hr>
 <h4 id="剪绳子"><a href="#剪绳子" class="headerlink" title="剪绳子"></a>剪绳子</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;<span class="number">1</span>并且m&gt;<span class="number">1</span>），每段绳子的长度记为k[<span class="number">0</span>],k[<span class="number">1</span>],...,k[m]。请问k[<span class="number">0</span>]xk[<span class="number">1</span>]x...xk[m]可能的最大乘积是多少？例如，当绳子的长度是<span class="number">8</span>时，我们把它剪成长度分别为<span class="number">2</span>、<span class="number">3</span>、<span class="number">3</span>的三段，此时得到的最大乘积是<span class="number">18</span>。</span><br></pre></td></tr></table></figure>
 
@@ -522,7 +282,7 @@
         <span class="keyword">return</span> sum*n;
 
     }
-&lt;!--￼<span class="number">30</span>--&gt;
+&lt;!--￼<span class="number">5</span>--&gt;
 
 
 </code></pre>
@@ -549,7 +309,7 @@
         }
         <span class="keyword">return</span> count;
     }
-&lt;!--￼<span class="number">32</span>--&gt;
+&lt;!--￼<span class="number">7</span>--&gt;
 
 
 </code></pre>
@@ -668,7 +428,7 @@
         }
         <span class="keyword">return</span> head0.next;
     }
-&lt;!--￼<span class="number">49</span>--&gt;</code></pre>
+&lt;!--￼<span class="number">24</span>--&gt;</code></pre>
 </li>
 <li><p>非递归实现：</p>
 </li>
@@ -746,9 +506,9 @@
         <span class="keyword">return</span> B.peek();
     }
 
-&lt;!--￼<span class="number">62</span>--&gt;
+&lt;!--￼<span class="number">37</span>--&gt;
 输入两组整数序列，判断是否为压栈和弹出序列
-&lt;!--￼<span class="number">63</span>--&gt;
+&lt;!--￼<span class="number">38</span>--&gt;
 </code></pre>
 </li>
 </ul>
@@ -823,7 +583,7 @@
         path.removeLast();
     }
 
-&lt;!--￼<span class="number">76</span>--&gt;
+&lt;!--￼<span class="number">51</span>--&gt;
 </code></pre>
 </li>
 </ul>
@@ -857,9 +617,9 @@
         <span class="keyword">return</span> map.get(pHead);
     }
 }
-&lt;!--￼<span class="number">80</span>--&gt;
+&lt;!--￼<span class="number">55</span>--&gt;
 输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
-&lt;!--￼<span class="number">81</span>--&gt;
+&lt;!--￼<span class="number">56</span>--&gt;
 
 
 
@@ -985,9 +745,9 @@
         }
         <span class="keyword">return</span> maxValue[cols-<span class="number">1</span>];
     }
-&lt;!--￼<span class="number">95</span>--&gt;
+&lt;!--￼<span class="number">70</span>--&gt;
 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。假设字符串中只包含从’a’到’z’的字符。例如，在字符串中”arabcacfr”，最长非重复子字符串为”acfr”，长度为<span class="number">4</span>。
-&lt;!--￼<span class="number">96</span>--&gt;</code></pre>
+&lt;!--￼<span class="number">71</span>--&gt;</code></pre>
 </li>
 <li><p><img src="https://pic4.zhimg.com/80/v2-ec6f1e5c8bd7902a4d6b2ffdf024e54f_1440w.jpg" alt="img"></p>
 </li>
@@ -1036,7 +796,7 @@
         }
         <span class="keyword">return</span> <span class="string">'0'</span>;
     }
-&lt;!--￼<span class="number">99</span>--&gt;
+&lt;!--￼<span class="number">74</span>--&gt;
 </code></pre>
 </li>
 </ul>
@@ -1081,7 +841,7 @@
         }
         <span class="keyword">return</span> <span class="number">0</span>;
     }
-&lt;!--￼<span class="number">105</span>--&gt;
+&lt;!--￼<span class="number">80</span>--&gt;
 </code></pre>
 </li>
 </ul>
@@ -1154,7 +914,7 @@
             <span class="keyword">return</span> Math.max(left,right)+<span class="number">1</span>;
         }
     }
-&lt;!--￼<span class="number">113</span>--&gt;
+&lt;!--￼<span class="number">88</span>--&gt;
 
 
 </code></pre>
@@ -1181,7 +941,7 @@
         <span class="keyword">return</span> <span class="number">1</span> + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }
-&lt;!--￼<span class="number">115</span>--&gt;
+&lt;!--￼<span class="number">90</span>--&gt;
 </code></pre>
 </li>
 </ul>
@@ -1214,7 +974,7 @@
         num1[<span class="number">0</span>]=num[<span class="number">0</span>];
         num2[<span class="number">0</span>]=num[<span class="number">1</span>];
     }
-&lt;!--￼<span class="number">117</span>--&gt;
+&lt;!--￼<span class="number">92</span>--&gt;
 
 
 </code></pre>
@@ -1256,9 +1016,9 @@
         }
         <span class="keyword">return</span> list;
     }
-&lt;!--￼<span class="number">121</span>--&gt;
+&lt;!--￼<span class="number">96</span>--&gt;
 输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序
-&lt;!--￼<span class="number">122</span>--&gt;
+&lt;!--￼<span class="number">97</span>--&gt;
 </code></pre>
 </li>
 </ul>
@@ -1309,7 +1069,7 @@
         }
         <span class="keyword">return</span> list;
     }
-&lt;!--￼<span class="number">129</span>--&gt;
+&lt;!--￼<span class="number">104</span>--&gt;
 
 
 
@@ -1345,9 +1105,9 @@
         <span class="keyword">return</span> list.size() == <span class="number">1</span> ? list.get(<span class="number">0</span>) : -<span class="number">1</span>;
     }
 }
-&lt;!--￼<span class="number">131</span>--&gt;
+&lt;!--￼<span class="number">106</span>--&gt;
 假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可获得的最大利润是多少？
-&lt;!--￼<span class="number">132</span>--&gt;
+&lt;!--￼<span class="number">107</span>--&gt;
 
 
 </code></pre>
@@ -1379,7 +1139,8 @@
 
 </code></pre></li>
 </ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+<p>####</p>
+
 	  
         
 
@@ -1464,7 +1225,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中重复的数字"><span class="nav-number">1.</span> <span class="nav-text">数组中重复的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不修改数组找出重复的数字"><span class="nav-number">2.</span> <span class="nav-text">不修改数组找出重复的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维数组中的查找"><span class="nav-number">3.</span> <span class="nav-text">二维数组中的查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重建二叉树"><span class="nav-number">4.</span> <span class="nav-text">重建二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的下一个节点"><span class="nav-number">5.</span> <span class="nav-text">二叉树的下一个节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用两个栈实现队列"><span class="nav-number">6.</span> <span class="nav-text">用两个栈实现队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">7.</span> <span class="nav-text">斐波那契数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵中的路径"><span class="nav-number">8.</span> <span class="nav-text">矩阵中的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#机器人的运动范围"><span class="nav-number">9.</span> <span class="nav-text">机器人的运动范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪绳子"><span class="nav-number">10.</span> <span class="nav-text">剪绳子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制中1的位数"><span class="nav-number">11.</span> <span class="nav-text">二进制中1的位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值的整数次方"><span class="nav-number">12.</span> <span class="nav-text">数值的整数次方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印从1到最大的n位数"><span class="nav-number">13.</span> <span class="nav-text">打印从1到最大的n位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除链表的节点"><span class="nav-number">14.</span> <span class="nav-text">删除链表的节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整数组的顺序使奇数位于偶数的前面"><span class="nav-number">15.</span> <span class="nav-text">调整数组的顺序使奇数位于偶数的前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表环的入口"><span class="nav-number">16.</span> <span class="nav-text">链表环的入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反转链表"><span class="nav-number">17.</span> <span class="nav-text">反转链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并两个排序的链表"><span class="nav-number">18.</span> <span class="nav-text">合并两个排序的链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的子结构"><span class="nav-number">19.</span> <span class="nav-text">树的子结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的镜像"><span class="nav-number">20.</span> <span class="nav-text">树的镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对称的二叉树"><span class="nav-number">21.</span> <span class="nav-text">对称的二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顺时针打印矩阵"><span class="nav-number">22.</span> <span class="nav-text">顺时针打印矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包含min函数的最小栈"><span class="nav-number">23.</span> <span class="nav-text">包含min函数的最小栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从上到下打印二叉树"><span class="nav-number">24.</span> <span class="nav-text">从上到下打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行打印二叉树"><span class="nav-number">25.</span> <span class="nav-text">多行打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按之字形打印二叉树"><span class="nav-number">26.</span> <span class="nav-text">按之字形打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树的后序遍历序列"><span class="nav-number">27.</span> <span class="nav-text">二叉搜索树的后序遍历序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树中和为某一值的路径"><span class="nav-number">28.</span> <span class="nav-text">二叉树中和为某一值的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将二叉树转化为双向循环链表"><span class="nav-number">29.</span> <span class="nav-text">将二叉树转化为双向循环链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂链表的复制"><span class="nav-number">30.</span> <span class="nav-text">复杂链表的复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中超过一半的数字"><span class="nav-number">31.</span> <span class="nav-text">数组中超过一半的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小的k个数"><span class="nav-number">32.</span> <span class="nav-text">最小的k个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据流中的中位数"><span class="nav-number">33.</span> <span class="nav-text">数据流中的中位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续子数组的最大和"><span class="nav-number">34.</span> <span class="nav-text">连续子数组的最大和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1–n整数中1出现的次数"><span class="nav-number">35.</span> <span class="nav-text">1–n整数中1出现的次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#礼物的最大价值"><span class="nav-number">36.</span> <span class="nav-text">礼物的最大价值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个只出现一次的字符"><span class="nav-number">37.</span> <span class="nav-text">第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中的逆序对"><span class="nav-number">38.</span> <span class="nav-text">数组中的逆序对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个链表的第一个公共节点"><span class="nav-number">39.</span> <span class="nav-text">两个链表的第一个公共节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在排序数组中查找数字"><span class="nav-number">40.</span> <span class="nav-text">在排序数组中查找数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树的第k大节点"><span class="nav-number">41.</span> <span class="nav-text">二叉搜索树的第k大节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的深度"><span class="nav-number">42.</span> <span class="nav-text">二叉树的深度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中出现的数字"><span class="nav-number">43.</span> <span class="nav-text">数组中出现的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和为s的数字"><span class="nav-number">44.</span> <span class="nav-text">和为s的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反转字符串"><span class="nav-number">45.</span> <span class="nav-text">反转字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列的最大值"><span class="nav-number">46.</span> <span class="nav-text">队列的最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圆圈中最后的数字（约瑟夫问题）"><span class="nav-number">47.</span> <span class="nav-text">圆圈中最后的数字（约瑟夫问题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的公共祖先"><span class="nav-number">48.</span> <span class="nav-text">树的公共祖先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">49.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#剪绳子"><span class="nav-number">1.</span> <span class="nav-text">剪绳子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制中1的位数"><span class="nav-number">2.</span> <span class="nav-text">二进制中1的位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值的整数次方"><span class="nav-number">3.</span> <span class="nav-text">数值的整数次方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印从1到最大的n位数"><span class="nav-number">4.</span> <span class="nav-text">打印从1到最大的n位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除链表的节点"><span class="nav-number">5.</span> <span class="nav-text">删除链表的节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整数组的顺序使奇数位于偶数的前面"><span class="nav-number">6.</span> <span class="nav-text">调整数组的顺序使奇数位于偶数的前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表环的入口"><span class="nav-number">7.</span> <span class="nav-text">链表环的入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反转链表"><span class="nav-number">8.</span> <span class="nav-text">反转链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并两个排序的链表"><span class="nav-number">9.</span> <span class="nav-text">合并两个排序的链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的子结构"><span class="nav-number">10.</span> <span class="nav-text">树的子结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的镜像"><span class="nav-number">11.</span> <span class="nav-text">树的镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对称的二叉树"><span class="nav-number">12.</span> <span class="nav-text">对称的二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顺时针打印矩阵"><span class="nav-number">13.</span> <span class="nav-text">顺时针打印矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包含min函数的最小栈"><span class="nav-number">14.</span> <span class="nav-text">包含min函数的最小栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从上到下打印二叉树"><span class="nav-number">15.</span> <span class="nav-text">从上到下打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行打印二叉树"><span class="nav-number">16.</span> <span class="nav-text">多行打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按之字形打印二叉树"><span class="nav-number">17.</span> <span class="nav-text">按之字形打印二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树的后序遍历序列"><span class="nav-number">18.</span> <span class="nav-text">二叉搜索树的后序遍历序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树中和为某一值的路径"><span class="nav-number">19.</span> <span class="nav-text">二叉树中和为某一值的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将二叉树转化为双向循环链表"><span class="nav-number">20.</span> <span class="nav-text">将二叉树转化为双向循环链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂链表的复制"><span class="nav-number">21.</span> <span class="nav-text">复杂链表的复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中超过一半的数字"><span class="nav-number">22.</span> <span class="nav-text">数组中超过一半的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小的k个数"><span class="nav-number">23.</span> <span class="nav-text">最小的k个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据流中的中位数"><span class="nav-number">24.</span> <span class="nav-text">数据流中的中位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续子数组的最大和"><span class="nav-number">25.</span> <span class="nav-text">连续子数组的最大和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1–n整数中1出现的次数"><span class="nav-number">26.</span> <span class="nav-text">1–n整数中1出现的次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#礼物的最大价值"><span class="nav-number">27.</span> <span class="nav-text">礼物的最大价值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个只出现一次的字符"><span class="nav-number">28.</span> <span class="nav-text">第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中的逆序对"><span class="nav-number">29.</span> <span class="nav-text">数组中的逆序对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个链表的第一个公共节点"><span class="nav-number">30.</span> <span class="nav-text">两个链表的第一个公共节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在排序数组中查找数字"><span class="nav-number">31.</span> <span class="nav-text">在排序数组中查找数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树的第k大节点"><span class="nav-number">32.</span> <span class="nav-text">二叉搜索树的第k大节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的深度"><span class="nav-number">33.</span> <span class="nav-text">二叉树的深度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组中出现的数字"><span class="nav-number">34.</span> <span class="nav-text">数组中出现的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和为s的数字"><span class="nav-number">35.</span> <span class="nav-text">和为s的数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反转字符串"><span class="nav-number">36.</span> <span class="nav-text">反转字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#队列的最大值"><span class="nav-number">37.</span> <span class="nav-text">队列的最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圆圈中最后的数字（约瑟夫问题）"><span class="nav-number">38.</span> <span class="nav-text">圆圈中最后的数字（约瑟夫问题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#树的公共祖先"><span class="nav-number">39.</span> <span class="nav-text">树的公共祖先</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1480,7 +1241,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
